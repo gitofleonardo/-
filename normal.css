@@ -58,7 +58,6 @@
     justify-content: center;
 }
 .img-loading{
-    display: none;
     width: 20px;
     height: 20px;
     margin-left: 10px;
@@ -90,7 +89,7 @@
 }
 .line-divider{
     height: 1px;
-    background-color: rgb(212, 212, 212);
+    background-color: #5cb85c;
 }
 .select-bank-camera{
     width: 30px;
@@ -142,4 +141,33 @@
     width: 100%;
     height: 100%;
     background-color: white;
+}
+.rect-block{
+    display: inline-block;
+    background-color:#5cb85c;
+    width: 10px;
+    height: 100%;
+}
+.big-title{
+    margin-left: -10px;
+    margin-top: 20px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: #5cb85c 1px solid;
+}
+.big-title-text{
+    margin-left: 5px;
+    text-decoration: none;
+    color: black;
+}
+.big-title-text:hover{
+    text-decoration: none;
+    color: black;
+}
+.big-title-text:visited{
+    text-decoration: none;
+    color: black;
 }

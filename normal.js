@@ -3,19 +3,38 @@ var idCardBackAvailable=true
 var bankCardAvailable=true
 var contractList=[]
 var insList=[]
+const serverIDCardFront="http://192.168.0.103:82/idcardnormal.php"
+const serverIDBack="http://192.168.0.103:82/idcardback.php"
+const serverBankCard="http://192.168.0.103:82/bankcard.php"
+const serverEnterpriseInterface="http://192.168.0.103:82/qiye.php"
+const serverPostInformation="http://192.168.0.103:82/uploaddata.php"
 
 $(document).ready(function(){
     initPaint()
     loadCompany()
+    initTime()
 })
+function initTime(){
+    var date=new Date()
+    var year=date.getFullYear()
+    var month=date.getMonth()
+    if (date.getMonth()<10){
+        month="0"+(date.getMonth()+1)
+    }
+    var day=date.getDate()
+    if (date.getDate()<10){
+        day="0"+date.getDate()
+    }
+    var d=year+"-"+month+"-"+day
+    document.getElementById("entry-time").value=d
+    document.getElementById("canbao-time").value=d
+}
 function loadCompany(){
-    $.ajax({
-        url:"http://localhost:82/qiye.php",
-        type:"GET",
-        crossDomain:true,
-        data:"",
-        success:function(result){
-            var coms=JSON.parse(result)
+    var xh=new XMLHttpRequest()
+    xh.open("GET",serverEnterpriseInterface,true)
+    xh.onreadystatechange=function(){
+        if (xh.readyState==4 && xh.status==200){
+            var coms=JSON.parse(xh.responseText)
             var container=document.getElementById("company")
             for (var i=0;i<coms.length;i++){
                 var option=document.createElement("option")
@@ -23,11 +42,9 @@ function loadCompany(){
                 option.innerText=coms[i]["name"]
                 container.appendChild(option)
             }
-        },
-        error:function(){
-            alert("获取单位信息失败，请刷新页面")
         }
-    })
+    }
+    xh.send("")
 }
 function clearName(){
     $("#sign-name").jSignature("clear")
@@ -36,7 +53,7 @@ function initPaint(){
     $("#sign-name").jSignature({
         height:300,
         color:"#00bfff",
-        lineWidth:10
+        lineWidth:5
     })
 }
 function chooseImgFront(){
@@ -49,8 +66,31 @@ function chooseBankCard(){
     console.log("click choose")
     $("#bank-card-file").click()
 }
-function onBankCardChanged(){
-
+function onBankCardChanged(event){
+    var img=document.getElementById("bank-card-file").files[0]
+    var bankLoad=document.getElementById("bank-load")
+    bankLoad.src="loading.gif"
+    var data=new FormData()
+    data.append("file",img)
+    var xh=new XMLHttpRequest()
+    xh.open("POST",serverBankCard,true)
+    xh.onreadystatechange=function(){
+        if (xh.readyState==4 && xh.status==200){
+            try{
+                var result=JSON.parse(xh.responseText)
+                if (result[0]["success"]){
+                    document.getElementById("bank-card-number").value=result[0]["number"]
+                    document.getElementById("bank-name").value=result[0]["name"]
+                    bankLoad.src="success.png"
+                }else{
+                    bankLoad.src="error.png"
+                }
+            }catch(e){
+                bankLoad.src="error.png"
+            }
+        }
+    }
+    xh.send(data)
 }
 function onIdImageChangedFront(event){
     const img=document.getElementById("preview-img-front")
@@ -74,39 +114,46 @@ function onIdImageChangedBack(event){
 }
 
 function checkIDCardFront(dom){
-    console.log(dom.files[0])
     var progress=document.getElementById("front-progress")
     var hint=document.getElementById("front-title")
     progress.style.display="block"
     progress.src="loading.gif"
     hint.innerText="正在验证"
-    var target="http://localhost:82/idcardnormal.php"
     var data=new FormData()
-    data.append("front",dom.files[0])
-    $.ajax({
-        url:target,
-        type:"post",
-        processData:false,
-        data:data,
-        success:function(result){
-            //console.log(result)
-            if (result["success"]){
-                progress.src="success.png"
-                hint.innerText="验证成功"
-                var uid=result["id"]
-                var name=result["name"]
-                $("#username").value=name
-                $("#id-code").value=uid
-            }else{
+    data.append("file",dom.files[0])
+    var xmlhttp;     //上传书本封面
+    if (window.XMLHttpRequest){
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+      }
+      else{
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            try{
+                var result=JSON.parse(xmlhttp.responseText)
+                console.log(result)
+                if (result[0]["success"]){
+                    progress.src="success.png"
+                    hint.innerText="验证成功"
+                    var uid=result[0]["id"]
+                    var name=result[0]["name"]
+                    document.getElementById("id-code").value=uid
+                    document.getElementById("username").value=name
+                }else{
+                    progress.src="error.png"
+                    hint.innerText="验证失败，请重新检查"
+                }
+            }catch(e){
                 progress.src="error.png"
                 hint.innerText="验证失败，请重新检查"
             }
-        },
-        error:function(){
-            progress.src="error.png"
-            hint.innerText="验证失败"
         }
-    })
+      }
+    xmlhttp.open("POST",serverIDCardFront,true);
+    xmlhttp.send(data);
 }
 function checkIDCardBack(dom){
     var progress=document.getElementById("back-progress")
@@ -114,29 +161,37 @@ function checkIDCardBack(dom){
     progress.style.display="block"
     progress.src="loading.gif"
     hint.innerText="正在验证"
-    var target="http://localhost/CheckBack"
     var data=new FormData()
-    data.append("back",dom.files[0])
-    $.ajax({
-        url:target,
-        type:"post",
-        processData:false,
-        data:data,
-        success:function(result){
-            //console.log(result)
-            if (result["success"]){
-                progress.src="success.png"
-                hint.innerText="验证成功"
-            }else{
+    data.append("file",dom.files[0])
+    var xmlhttp;     //上传书本封面
+    if (window.XMLHttpRequest){
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+      }
+      else{
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            try{
+                var result=JSON.parse(xmlhttp.responseText)
+                console.log(result)
+                if (result[0]["success"]){
+                    progress.src="success.png"
+                    hint.innerText="验证成功"
+                }else{
+                    progress.src="error.png"
+                    hint.innerText="验证失败，请重新检查"
+                }
+            }catch(e){
                 progress.src="error.png"
                 hint.innerText="验证失败，请重新检查"
             }
-        },
-        error:function(){
-            progress.src="error.png"
-            hint.innerText="验证失败"
         }
-    })
+      }
+    xmlhttp.open("POST",serverIDBack,true);
+    xmlhttp.send(data);
 }
 
 function goToPage2(){
@@ -163,26 +218,48 @@ function goToPage3(){
     page2.style.display="none"
     page3.style.display="block"
 }
-
+function convertBase64ToBlob(data){
+    var bytes=window.atob(data[1])
+    var ab=new ArrayBuffer(bytes.length)
+    var ia=new Uint8Array(ab)
+    for (var i=0;i<bytes.length;i++){
+        ia[i]=bytes.charCodeAt(i)
+    }
+    return new Blob([ab],{type:"image/jpg"})
+}
 function conformSubmit(){
     if (!idCardFrontAvailable || !idCardBackAvailable || !bankCardAvailable){
         alert("信息仍未完整,请仔细核对")
         return
     }
     //文字数据
-    var username=$("#username").value
-    var idCode=$("#id-code").value
-    var contactNumber=$("#phone").value
-    var companyId=$("#company").value
-    var userPost=$("#user-post").value
-    var entryTime=$("#entry-time").value
-    var canbaoTime=$("#canbao-time").value
-    var originCompany=$("#origin-company").value
-    var originCompanyLocation=$("#origin-company-location").value
-    var bankCardNumber=$("#bank-card-number").value
-    var bankName=$("#bank-name").value
-    var applyAmount=$("#apply-amount").value
-    var signNameInput=$("#sign-name-input").value
+    var username=document.getElementById("username").value
+    var idCode=document.getElementById("id-code").value
+    var contactNumber=document.getElementById("phone").value
+    var companyId=document.getElementById("company").value
+    var userPost=document.getElementById("user-post").value
+    var entryTime=document.getElementById("entry-time").value
+    var canbaoTime=document.getElementById("canbao-time").value
+    var originCompany=document.getElementById("origin-company").value
+    var originCompanyLocation=document.getElementById("origin-company-location").value
+    var bankCardNumber=document.getElementById("bank-card-number").value
+    var bankName=document.getElementById("bank-name").value
+    var applyAmount=document.getElementById("apply-amount").value
+    var signNameInput=document.getElementById("sign-name-input").value
+    console.log(username)
+    console.log(idCode)
+    console.log(contactNumber)
+    console.log(companyId)
+    console.log(userPost)
+    console.log(entryTime)
+    console.log(canbaoTime)
+    console.log(originCompany)
+    console.log(originCompanyLocation)
+    console.log(bankCardNumber)
+    console.log(bankName)
+    console.log(applyAmount)
+    console.log(signNameInput)
+    
     if (username=="" 
     || idCode=="" 
     || contactNumber==""
@@ -194,7 +271,18 @@ function conformSubmit(){
     || originCompanyLocation==""
     || bankCardNumber==""
     || bankName==""
-    || applyAmount==""){
+    || applyAmount==""
+    ||username==undefined 
+    || idCode==undefined 
+    || contactNumber==undefined 
+    || userPost==undefined 
+    || entryTime==undefined 
+    || canbaoTime==undefined 
+    || originCompany==undefined 
+    || originCompanyLocation==undefined 
+    || bankCardNumber==undefined 
+    || bankName==undefined 
+    || applyAmount==undefined){
         alert("信息未完整！请仔细检查")
         return
     }
@@ -230,13 +318,15 @@ function conformSubmit(){
     }
     console.log(contracts)
     console.log(ins)
-    var signature=$("#sign-name").jSignature("getData","default")
+    var signature=$("#sign-name").jSignature("getData","image")
+    console.log(signature)
     console.log($("#sign-name").jSignature("getData","native"))
     console.log(signNameInput)
     if ($("#sign-name").jSignature("getData","native").length==0 && (signNameInput==undefined || signNameInput=="")){
         alert("手写签名和输入框签名必须至少填写一项")
         return
     }
+    //文字类型的数据
     var formData=new FormData()
     formData.append("username",username)
     formData.append("idCode",idCode)
@@ -251,10 +341,12 @@ function conformSubmit(){
     formData.append("bankName",bankName)
     formData.append("applyAmount",applyAmount)
     formData.append("signNameInput",signNameInput)
+
+    //图片类型的数据
     formData.append("idCardImgFront",idFront)
     formData.append("idCardImgBack",idBack)
     formData.append("bankCardImg",bankCardImg)
-    formData.append("signature",signature)
+    formData.append("signature",convertBase64ToBlob(signature))
     
     var i=0
     for (;i<contracts.length;i++){
@@ -264,20 +356,61 @@ function conformSubmit(){
     for (;i<ins.length;i++){
         formData.append("ins",ins[i])
     }
-    $.ajax({
-        url:"http://localhost/PostData",
-        type:"post",
-        mimeType: "multipart/form-data",
-        processData:false,
-        data:formData,
-        contentType:false,
-        success:function(result){
-            console.log(result)
-        },
-        error:function(){
-
+    var xh=new XMLHttpRequest()
+    xh.open("POST",serverPostInformation,true)
+    xh.onreadystatechange=function(){
+        if (xh.readyState==4){
+            if (xh.status==200){
+                try{
+                    var text=xh.responseText
+                    console.log(text)
+                    var result=JSON.parse(text)
+                    if (result["success"]){
+                        alert("上传成功")
+                        hideSubmitting()
+                        return
+                    }
+                }catch(e){
+                    showSubmittingError()
+                }
+            }
+            showSubmittingError()
         }
-    })
+    }
+    showSubmitting()
+    xh.send(formData)
+}
+
+function showSubmittingError(){
+    var alert=document.getElementById("uploading-alert")
+    var text=document.getElementById("upload-text")
+    text.innerText="上传失败"
+    alert.classList=[]
+    alert.classList.add("alert")
+    alert.classList.add("alert-warning")
+    var img=document.getElementById("alert-img")
+    img.src="error.png"
+}
+function showSubmitting(){
+    var alert=document.getElementById("uploading-alert")
+    var text=document.getElementById("upload-text")
+    text.innerText="上传中"
+    alert.style.display="block"
+    alert.classList=[]
+    alert.classList.add("alert")
+    alert.classList.add("alert-warning")
+    var img=document.getElementById("alert-img")
+    img.src="loading.gif"
+}
+function hideSubmitting(){
+    var alert=document.getElementById("uploading-alert")
+    var text=document.getElementById("upload-text")
+    text.innerText="成功"
+    alert.classList=[]
+    alert.classList.add("alert")
+    alert.classList.add("alert-success")
+    var img=document.getElementById("alert-img")
+    img.src="success.png"
 }
 function onAddContract(event){
     var container=document.getElementById("add-labor-contract")
