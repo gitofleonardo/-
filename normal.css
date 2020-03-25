@@ -1,0 +1,143 @@
+.post-body{
+    background-color: white;
+}
+.form-title{
+    margin-top: 1rem;
+    text-align: center;
+}
+.head-img-bg{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.upload-id{
+    width: 237px;
+    height: 150px;
+    background-color: rgb(219, 219, 219);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition-duration: 500ms;
+}
+.upload-id:hover{
+    background-color: rgb(200, 200, 200);
+}
+.upload-hint{
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    margin-top: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    z-index: 2;
+}
+.preview-img{
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.id-card-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.select-id-and-progress{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.img-loading{
+    display: none;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+.linear-layout-vertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.linear-layout-horizontal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.margin-left-10px{
+    margin-left: 10px;
+}
+#front-title{
+    margin-left: 5px;
+}
+#back-title{
+    margin-left: 5px;
+}
+.divider{
+    height: 10px;
+    background-color: rgb(219, 219, 219);
+}
+.line-divider{
+    height: 1px;
+    background-color: rgb(212, 212, 212);
+}
+.select-bank-camera{
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+.bottom-button{
+    width: 40%;
+}
+.bottom-buttons{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.page2-upload{
+    margin :10px 10px 10px 10px;
+    padding-top: 15px;
+    width: 15rem;
+    height: 15rem;
+    background-color: rgb(219, 219, 219);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 500ms;
+}
+.page2-upload:hover{
+    background-color: rgb(200, 200, 200);
+}
+.contract-img{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.img-container{
+    margin :10px 10px 10px 10px;
+    width: 15rem;
+    height: 15rem;
+    display: inline-block;
+    position: relative;
+}
+.delete-img{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+}
+#sign-name{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
