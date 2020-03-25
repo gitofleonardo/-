@@ -29,15 +29,15 @@
                     <div class="form-group" id="basic-info">
                         <div class="form-group">
                             <label for="username">姓名</label>
-                            <input type="text" id="username" class="form-control" placeholder="身份证自动识别">
+                            <input type="text" id="username" class="form-control" placeholder="身份证自动识别" value="1">
                         </div>
                         <div class="form-group">
                             <label for="id-code">身份证号码</label>
-                            <input type="text" id="id-code" class="form-control" placeholder="身份证自动识别">
+                            <input type="text" id="id-code" class="form-control" placeholder="身份证自动识别" value="1">
                         </div>
                         <div class="form-group">
                             <label for="phone">联系电话</label>
-                            <input type="text" id="phone" class="form-control">
+                            <input type="text" id="phone" class="form-control" value="1">
                         </div>
                     </div>
                 </div>
@@ -84,29 +84,29 @@
                             <div class="form-group">
                                 <label for="company">工作单位</label>
                                 <select class="form-control" id="company">
-                                    <option value="-1" selected="true">下拉获取公司</option>
+                                    <option value="-1">下拉获取公司</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="user-post">工作岗位</label>
-                            <input class="form-control" type="text" id="user-post" placeholder="输入岗位信息">
+                            <input class="form-control" type="text" id="user-post" placeholder="输入岗位信息" value="1">
                         </div>
                         <div class="form-group">
                             <label for="entry-time">入职时间</label>
-                            <input class="form-control" id="entry-time" type="date">
+                            <input class="form-control" id="entry-time" type="date" value="2020-02-02">
                         </div>
                         <div class="form-group">
                             <label for="">参保时间</label>
-                            <input class="form-control" id="canbao-time" type="date">
+                            <input class="form-control" id="canbao-time" type="date" value="2020-02-02">
                         </div>
                         <div class="form-group">
                             <label for="origin-company">原工作单位</label>
-                            <input class="form-control" id="origin-company" type="text">
+                            <input class="form-control" id="origin-company" type="text" value="1">
                         </div>
                         <div class="form-group">
                             <label for="origin-company-location">原单位地址</label>
-                            <input class="form-control" id="origin-company-location" type="text">
+                            <input class="form-control" id="origin-company-location" type="text" value="1">
                         </div>
                     </div>
                 </div>
@@ -120,17 +120,17 @@
                             <label for="bank-card-number">银行卡号</label>
                             <input style="display: none;" id="bank-card-file" type="file" accept="image/*" onchange="onBankCardChanged(event)">
                             <div class="linear-layout-horizontal">
-                                <input class="form-control" id="bank-card-number" placeholder="拍照上传" disabled="disabled" type="text">
+                                <input class="form-control" id="bank-card-number" placeholder="拍照上传" disabled="disabled" type="text" value="1">
                                 <img onclick="chooseBankCard()" class="select-bank-camera" src="camera.png">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="bank-name">开户行全称</label>
-                            <input class="form-control" id="bank-name" type="text">
+                            <input class="form-control" id="bank-name" type="text" value="1">
                         </div>
                         <div class="form-group">
                             <label for="apply-amount">申请补贴金额</label>
-                            <input class="form-control" type="number" id="apply-amount">
+                            <input class="form-control" type="number" id="apply-amount" value="1">
                         </div>
                     </div>
                 </div>

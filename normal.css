@@ -1,4 +1,6 @@
 .post-body{
+    width: 100%;
+    overflow-x: hidden;
     background-color: white;
 }
 .form-title{
