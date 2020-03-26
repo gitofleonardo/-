@@ -1,6 +1,6 @@
-var idCardFrontAvailable=true
-var idCardBackAvailable=true
-var bankCardAvailable=true
+var idCardFrontAvailable=false
+var idCardBackAvailable=false
+var bankCardAvailable=false
 var contractList=[]
 var insList=[]
 const serverIDCardFront="http://192.168.0.103:82/idcardnormal.php"
@@ -8,12 +8,31 @@ const serverIDBack="http://192.168.0.103:82/idcardback.php"
 const serverBankCard="http://192.168.0.103:82/bankcard.php"
 const serverEnterpriseInterface="http://192.168.0.103:82/qiye.php"
 const serverPostInformation="http://192.168.0.103:82/uploaddata.php"
+const serverStatusPassed="http://192.168.0.103:82/firstcheck.php"
 
 $(document).ready(function(){
     initPaint()
     loadCompany()
     initTime()
+    checkIfStatusPassed()
 })
+function checkIfStatusPassed(){
+    var xh=new XMLHttpRequest()
+    xh.open("GET",serverStatusPassed,true)
+    xh.onreadystatechange=function(e){
+        if (xh.readyState==4){
+            if (xh.status==200){
+                var text=xh.responseText
+                var result=JSON.parse(text)
+                console.log(result)
+                if (!result["passed"]){
+                    document.getElementById("all-submit").disabled="disabled"
+                }
+            }
+        }
+    }
+    xh.send("")
+}
 function initTime(){
     var date=new Date()
     var year=date.getFullYear()
@@ -63,29 +82,40 @@ function chooseImgBack(){
     $("#id-card-img-back").click()
 }
 function chooseBankCard(){
-    console.log("click choose")
     $("#bank-card-file").click()
 }
 function onBankCardChanged(event){
+    if (event.target.files[0]==undefined) return
+    bankCardAvailable=false
     var img=document.getElementById("bank-card-file").files[0]
     var bankLoad=document.getElementById("bank-load")
+    document.getElementById("bank-card-number").value=""
+    document.getElementById("bank-name").value=""
     bankLoad.src="loading.gif"
     var data=new FormData()
     data.append("file",img)
     var xh=new XMLHttpRequest()
     xh.open("POST",serverBankCard,true)
     xh.onreadystatechange=function(){
-        if (xh.readyState==4 && xh.status==200){
-            try{
-                var result=JSON.parse(xh.responseText)
-                if (result[0]["success"]){
-                    document.getElementById("bank-card-number").value=result[0]["number"]
-                    document.getElementById("bank-name").value=result[0]["name"]
-                    bankLoad.src="success.png"
-                }else{
+        if (xh.readyState==4){
+            if (xh.status==200){
+                try{
+                    var result=JSON.parse(xh.responseText)
+                    if (result[0]["success"]){
+                        document.getElementById("bank-card-number").value=result[0]["number"]
+                        document.getElementById("bank-name").value=result[0]["name"]
+                        bankLoad.src="success.png"
+                        bankCardAvailable=true
+                    }else{
+                        bankCardAvailable=false
+                        bankLoad.src="error.png"
+                    }
+                }catch(e){
+                    bankCardAvailable=false
                     bankLoad.src="error.png"
                 }
-            }catch(e){
+            }else{
+                bankCardAvailable=false
                 bankLoad.src="error.png"
             }
         }
@@ -95,6 +125,7 @@ function onBankCardChanged(event){
 function onIdImageChangedFront(event){
     const img=document.getElementById("preview-img-front")
     var imgFile=event.target.files[0]
+    if (imgFile==undefined) return
     var URL=window.URL || window.webkitURL
     var imgUrl=URL.createObjectURL(imgFile)
     console.log(imgUrl)
@@ -114,6 +145,7 @@ function onIdImageChangedBack(event){
 }
 
 function checkIDCardFront(dom){
+    idCardFrontAvailable=false
     var progress=document.getElementById("front-progress")
     var hint=document.getElementById("front-title")
     progress.style.display="block"
@@ -121,7 +153,7 @@ function checkIDCardFront(dom){
     hint.innerText="正在验证"
     var data=new FormData()
     data.append("file",dom.files[0])
-    var xmlhttp;     //上传书本封面
+    var xmlhttp;
     if (window.XMLHttpRequest){
         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
         xmlhttp=new XMLHttpRequest();
@@ -131,22 +163,31 @@ function checkIDCardFront(dom){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
       }
     xmlhttp.onreadystatechange=function(){
-        if (xmlhttp.readyState==4 && xmlhttp.status==200){
-            try{
-                var result=JSON.parse(xmlhttp.responseText)
-                console.log(result)
-                if (result[0]["success"]){
-                    progress.src="success.png"
-                    hint.innerText="验证成功"
-                    var uid=result[0]["id"]
-                    var name=result[0]["name"]
-                    document.getElementById("id-code").value=uid
-                    document.getElementById("username").value=name
-                }else{
+        if (xmlhttp.readyState==4){
+            if (xmlhttp.status==200){
+                try{
+                    var result=JSON.parse(xmlhttp.responseText)
+                    console.log(result)
+                    if (result[0]["success"]){
+                        progress.src="success.png"
+                        hint.innerText="验证成功"
+                        var uid=result[0]["id"]
+                        var name=result[0]["name"]
+                        document.getElementById("id-code").value=uid
+                        document.getElementById("username").value=name
+                        idCardFrontAvailable=true
+                    }else{
+                        idCardFrontAvailable=false
+                        progress.src="error.png"
+                        hint.innerText="验证失败，请重新检查"
+                    }
+                }catch(e){
+                    idCardFrontAvailable=false
                     progress.src="error.png"
                     hint.innerText="验证失败，请重新检查"
                 }
-            }catch(e){
+            }else{
+                idCardFrontAvailable=false
                 progress.src="error.png"
                 hint.innerText="验证失败，请重新检查"
             }
@@ -156,6 +197,7 @@ function checkIDCardFront(dom){
     xmlhttp.send(data);
 }
 function checkIDCardBack(dom){
+    idCardBackAvailable=false
     var progress=document.getElementById("back-progress")
     var hint=document.getElementById("back-title")
     progress.style.display="block"
@@ -173,18 +215,27 @@ function checkIDCardBack(dom){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
       }
     xmlhttp.onreadystatechange=function(){
-        if (xmlhttp.readyState==4 && xmlhttp.status==200){
-            try{
-                var result=JSON.parse(xmlhttp.responseText)
-                console.log(result)
-                if (result[0]["success"]){
-                    progress.src="success.png"
-                    hint.innerText="验证成功"
-                }else{
+        if (xmlhttp.readyState==4){
+            if (xmlhttp.status==200){
+                try{
+                    var result=JSON.parse(xmlhttp.responseText)
+                    console.log(result)
+                    if (result[0]["success"]){
+                        idCardBackAvailable=true
+                        progress.src="success.png"
+                        hint.innerText="验证成功"
+                    }else{
+                        idCardBackAvailable=false
+                        progress.src="error.png"
+                        hint.innerText="验证失败，请重新检查"
+                    }
+                }catch(e){
+                    idCardBackAvailable=false
                     progress.src="error.png"
                     hint.innerText="验证失败，请重新检查"
                 }
-            }catch(e){
+            }else{
+                idCardBackAvailable=false
                 progress.src="error.png"
                 hint.innerText="验证失败，请重新检查"
             }
@@ -347,14 +398,16 @@ function conformSubmit(){
     formData.append("idCardImgBack",idBack)
     formData.append("bankCardImg",bankCardImg)
     formData.append("signature",convertBase64ToBlob(signature))
+    formData.append("contracts",contracts.length)
+    formData.append("ins",ins.length)
     
     var i=0
     for (;i<contracts.length;i++){
-        formData.append("contracts",contracts[i])
+        formData.append("contracts_"+i,contracts[i])
     }
     i=0
     for (;i<ins.length;i++){
-        formData.append("ins",ins[i])
+        formData.append("ins_"+i,ins[i])
     }
     var xh=new XMLHttpRequest()
     xh.open("POST",serverPostInformation,true)
@@ -366,7 +419,6 @@ function conformSubmit(){
                     console.log(text)
                     var result=JSON.parse(text)
                     if (result["success"]){
-                        alert("上传成功")
                         hideSubmitting()
                         return
                     }

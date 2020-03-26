@@ -80,11 +80,11 @@ function bankcard($picture_path){
 	if(array_key_exists("result",$b)){
 		$bankcard->number=$b->result->bank_card_number;
 		$bankcard->name=urlencode($b->result->bank_name);
-		$bankcard->success="true";
+		$bankcard->success=true;
 	}else{
 		$bankcard->number="";
 		$bankcard->name="";
-		$bankcard->success="false";
+		$bankcard->success=false;
 	}
 	return $bankcard;
 }

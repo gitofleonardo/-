@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://www.jkqrc.com/member/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>企业用户后台管理系统 - 长沙经开区人才网</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var weburl="http://www.jkqrc.com";</script>
+<link href="./企业用户后台管理系统 - 长沙经开区人才网_files/m_style.css" type="text/css" rel="stylesheet">
+<link href="./企业用户后台管理系统 - 长沙经开区人才网_files/tips.css" type="text/css" rel="stylesheet">
+<link href="./企业用户后台管理系统 - 长沙经开区人才网_files/layui.css" rel="stylesheet" type="text/css">
+<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/jquery-1.8.1.min.js"></script>
+<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/layui.js"></script>
+<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/phpyun_layer.js"></script> 
+<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/member_public.js"></script> 
+<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/public.js"></script> 
+<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/pay.js"></script> 
+<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/comtc.js"></script> 
+<meta content="MSHTML 6.00.6000.16939" name="GENERATOR/"> 
+<script>
+
+/*屏蔽所有的js错误*/
+function killerrors() {return true;}
+window.onerror = killerrors;
+var integral_pricename='积分';  
+</script>
+    <!--[if IE 6]>
+    <script src="http://www.jkqrc.com/js/png.js?v=1398"></script>
+    <script>
+      DD_belatedPNG.fix('.png,.#bg');
+    </script>
+    <![endif]-->
+<link id="layuicss-layer" rel="stylesheet" href="./企业用户后台管理系统 - 长沙经开区人才网_files/layer.css" media="all"></head>
+<body>
+<div class="body_box">
+<header>
+
+<div class="header">
+	<div class="header_fixed">
+		<div class="header-logo fltL">
+			<a href="http://www.jkqrc.com/" target="_blank"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/15820320034.png" class="png"></a>
+		</div>
+		<ul class="yun_m_headernav">
+			<li class="yun_m_headernav_cur"><a href="http://www.jkqrc.com/member/index.php">企业中心</a></li>
+			<li><a href="http://www.jkqrc.com/member/index.php?c=job&amp;w=1">职位管理 </a></li>
+			<li><a href="http://www.jkqrc.com/member/index.php?c=hr">简历管理</a></li>
+			<li><a href="http://www.jkqrc.com/member/index.php?c=paylogtc">财务管理</a></li>
+            <li><a href="http://www.jkqrc.com/member/index.php?c=vs">设置</a></li>
+            <li><a href="http://www.jkqrc.com/member/index.php?c=info">资料</a></li>
+			<li><a href="http://www.jkqrc.com/" target="_blank">人才网首页</a></li>
+		</ul>
+                   <a href="http://www.jkqrc.com/member/index.php?c=chat" class="yun_header_chat">直聊</a>
+							<div class="">
+			<div class="header_m_navright">
+	 
+				<!-- 头像-->  
+				<div class="yun_m_headertx" onmouseover="headerInfoShow(&#39;show&#39;)" onmouseout="headerInfoShow(&#39;hide&#39;)"> 
+					<a href="http://www.jkqrc.com/member/index.php?c=uppic"> 
+						<img src="./企业用户后台管理系统 - 长沙经开区人才网_files/caf449b6993c4ae6880f79202c898fa6.png" width="25" height="25" onerror="showImgDelay(this,&#39;http://www.jkqrc.com/data/logo/20170418/14906489056.PNG&#39;,&#39;2&#39;)">
+					</a> 
+					
+					<!--<div class="yun_m_headertx_hi">你好！lskj-xs2020</div>-->
+					<i class="yun_m_headertx_hi_icon"></i>
+					<div class="yun_m_header_info" style="display:none;">
+													<a href="http://www.jkqrc.com/member/index.php?c=info" class="yun_m_header_info_a">编辑资料</a>
+												
+						<a href="http://www.jkqrc.com/company/c_show-id_16701.html" target="_blank" class="yun_m_header_info_a"> 预览主页</a>
+													<a href="http://www.jkqrc.com/member/index.php?c=comtpl" class="yun_m_header_info_a">模板设置</a>						
+							            						<a href="javascript:void(0)" onclick="logout(&#39;index.php?act=logout&#39;)" title="退出登录" class="yun_m_header_info_a">退出登录</a>
+					</div> 
+				</div> 
+
+				<!-- 消息 START-->
+				<div class="yun_m_headermsg" onmouseover="tzmsgNumShow(&#39;show&#39;)" onmouseout="tzmsgNumShow(&#39;hide&#39;)">
+					<i class="yun_m_headermsg_icon"></i>
+					<span class="yun_m_headermsg_n" id="tzmsgNum" style="">89</span>
+					<div class="yun_m_headermsg_box" style="display:none">
+						<div class="yun_m_headermsg_list">
+							<a href="http://www.jkqrc.com/member/index.php?c=hr">职位申请  <em class="yun_m_headermsg_list_n" id="jobApplyNum">(6)</em></a>
+						</div>
+						
+						<div class="yun_m_headermsg_list">
+							<a href="http://www.jkqrc.com/member/index.php?c=sysnews">系统消息  <em class="yun_m_headermsg_list_n" id="sysmsgNum">(83)</em></a>
+						</div>
+				
+						<div class="yun_m_headermsg_list">
+							<a href="http://www.jkqrc.com/member/index.php?c=msg">求职咨询  <em class="yun_m_headermsg_list_n" id="jobAskNum">(0)</em></a> 
+						</div>
+						
+						<div class="yun_m_headermsg_list ">
+							<a href="http://www.jkqrc.com/member/index.php?c=jobpack&amp;act=rewardlog&amp;state=1">赏金投递  <em class="yun_m_headermsg_list_n" id="jobpackNum">(0)</em></a> 
+						</div>
+						<div class="yun_m_headermsg_list">
+							<a href="http://www.jkqrc.com/member/index.php?c=pl">面试评价  <em class="yun_m_headermsg_list_n" id="ComMsgNum">(0)</em></a> 
+						</div>
+					</div>
+				</div>
+				<!-- 消息 END--> 
+				<a href="javascript:void(0)" onclick="jobadd_url(&#39;1&#39;,&#39;0&#39;,&#39;&#39;,&#39;1&#39;,&#39;10&#39;);return false;" class="header_m_nav_fb">发布职位</a>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div> 
+
+
+</header>
+<script>
+
+    function Close(id) {
+        $("#" + id).hide();
+        $("#bg").hide();
+    }
+    function Next() {
+        $("#one_tip").hide();
+        $("#two_tip").show();
+    }
+    function showindextip(id) {
+        $(".indextiphide").hide();
+        $("#indextiphide" + id).show();
+    }
+    function hideindextip() {
+        $(".indextiphide").hide();
+        $("#bg").hide();
+    }
+</script>
+
+<div class="w1000">
+	<div class="admin_mainbody">
+
+		<div class="sidebar">
+	<div class="left_box">
+		<div class="left_box_nav">
+			
+			<ul class="left_box_nav_list">
+				<li class="left_box_nav_cur" data-def="1">
+					<a href="http://www.jkqrc.com/member/">首页
+						<i class="left_box_nav_icon"></i>
+						<i class="left_box_nav_line"></i>
+					</a>
+				</li>
+					
+				<li data-def="3">
+					<a href="javascript:;">职位
+						<i class="left_box_nav_icon left_box_nav_icon_zw"></i>
+						<i class="left_box_nav_line"></i>
+					</a>
+				</li>
+				
+				<li data-def="5">
+					<a href="javascript:;">简历
+						<i class="left_box_nav_icon left_box_nav_icon_jl"></i>
+						<i class="left_box_nav_line"></i>
+												<i class="left_box_nav_new"></i>
+											</a>
+				</li>
+				
+				<li data-def="4">
+					<a href="javascript:;">财务
+						<i class="left_box_nav_icon left_box_nav_icon_cw"></i>
+						<i class="left_box_nav_line"></i>
+					</a>
+				</li>
+				
+				<li data-def="7">
+					<a href="javascript:;">设置
+						<i class="left_box_nav_icon left_box_nav_icon_sz"></i>
+						<i class="left_box_nav_line"></i>
+					</a>
+				</li>
+				 				<li data-def="2">
+					<a href="javascript:;">资料
+						<i class="left_box_nav_icon left_box_nav_icon_zl"></i>
+						<i class="left_box_nav_line"></i>
+					</a>
+				</li>
+								<li data-def="8">
+					<a href="javascript:;">招聘会
+						<i class="left_box_nav_icon left_box_nav_icon_sz"></i>
+						<i class="left_box_nav_line"></i>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+			
+		
+			<ul class="left_nav_ul  " id="def1">
+									<li><span><a href="http://www.jkqrc.com/member/index.php?c=info" title="基本信息"><i class="com_left_icon com_left_icon_info"></i>基本信息</a></span></li>
+								<li>
+					<span><a href="javascript:void(0)" onclick="jobadd_url(&#39;1&#39;,&#39;0&#39;,&#39;&#39;,&#39;1&#39;,&#39;10&#39;);return false;" title="发布职位" style="color:red;"><i class="com_left_icon com_left_icon_info"></i>发布职位</a></span> 
+				</li>
+				<li>
+					<span><a href="http://www.jkqrc.com/member/index.php?c=job&amp;w=1" title="职位管理"><i class="com_left_icon com_left_icon_zwgl"></i>职位管理</a></span>
+				</li>
+									<li class="style12">
+						<span>
+							<a href="http://www.jkqrc.com/member/index.php?c=right" style="color:red;">
+								<i class="com_left_icon com_left_icon_fw"></i>VIP招聘服务
+								<i class="com_icon com_icon_new"></i>
+							</a>
+						</span>
+					</li>
+								
+				<li class="style01">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=hr" title="我的简历"><i class="com_left_icon com_left_icon_jl"></i>我的简历</a></span> 
+				</li>
+                <li class="style03">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=invite" title="已邀请面试的人才" style="color:red;"><i class="com_left_icon com_left_icon_yq"></i>面试邀请</a></span>
+				</li>
+								<li><span><a href="http://www.jkqrc.com/member/index.php?c=paylogtc" title="会员套餐"><i class="com_left_icon com_left_icon_info"></i>我的服务</a></span></li>
+				
+         		<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=tongji"><i class="com_left_icon com_left_icon_fx"></i>招聘分析</a></span>
+				</li>
+				                <li class="style05">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=pay" title="充值积分">
+							<font color="#FF0000"><i class="com_left_icon com_left_icon_cz"></i>充值积分</font>
+						</a>
+					</span>
+				</li>
+				<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=binding"><i class="com_left_icon com_left_icon_bd"></i>账户绑定</a></span>
+				</li>
+								
+                <li><span><a href="http://www.jkqrc.com/member/index.php?c=sysnews" title="系统消息"><i class="com_left_icon com_left_icon_info"></i>系统消息</a></span></li>
+
+									<li class="style07">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=chat" target="_blank" style="color:red;" title="直聊"><i class="com_left_icon com_left_icon_lt"></i>直聊</a></span>
+					</li>
+							</ul>
+ 		
+		
+							<ul class="left_nav_ul   none" id="def2">
+					<li class="style01">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=info" title="基本信息"><i class="com_left_icon com_left_icon_info"></i>基本信息</a></span> 
+					</li>
+					<li class="style08">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=uppic" title="企业LOGO"><i class="com_left_icon com_left_icon_logo"></i>企业Logo</a></span> 
+					</li>
+					<li class="style02">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=map" title="企业地图"><i class="com_left_icon com_left_icon_map"></i>企业地图</a></span> 
+					</li>
+					<li class="style03">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=news" title="企业新闻"><i class="com_left_icon com_left_icon_news"></i>企业新闻</a></span> 
+					</li>
+					<li class="style05">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=show" title="企业环境"><i class="com_left_icon com_left_icon_hj"></i>企业环境</a></span> 
+					</li>
+					<li class="style04">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=product" title="企业产品"><i class="com_left_icon com_left_icon_cp"></i>企业产品</a></span> 
+					</li>
+					<li class="style09">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=comtpl" title="模板切换"><i class="com_left_icon com_left_icon_mb"></i>企业模板</a></span>
+					</li>
+										<li class="style11">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=baoming_subject" title="培训管理"><i class="com_left_icon com_left_icon_xin"></i>培训管理</a></span> 
+					</li>
+										<li class="style07">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=binding" style="color:red;"><i class="com_left_icon com_left_icon_bd"></i>账户认证</a></span>
+					</li> 
+				</ul>
+			
+			<ul class="left_nav_ul  none" id="def5">
+					<li class="style06">
+						<span>
+							<a href="http://www.jkqrc.com/member/index.php?c=resume" class="f60">
+								<i class="com_left_icon com_left_icon_search"></i>搜人才
+								<i class="com_icon com_icon_new"></i>
+							</a>
+						</span>
+					</li>
+				<li class="style01">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=hr" title="我的简历" style="color:red;"><i class="com_left_icon com_left_icon_jl"></i>我的简历</a></span> 
+				</li>
+				<li class="style03">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=invite" title="已邀请面试的人才"><i class="com_left_icon com_left_icon_yq"></i>面试邀请</a></span>
+				</li>
+				<li class="style06">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=subscribe"><i class="com_left_icon com_left_icon_info"></i>人才订阅</a></span> 
+				</li>
+				<li class="style06">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=finder"><i class="com_left_icon com_left_icon_sq"></i>人才搜索器</a></span> 
+				</li>
+				<li class="style06">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=attention_me"><i class="com_left_icon com_left_icon_gz"></i>关注我的人才</a></span> 
+				</li>
+				<li class="style06">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=look_job"><i class="com_left_icon com_left_icon_eye"></i>被浏览的职位</a></span> 
+				</li>
+									<li class="style07">
+						<span><a href="http://www.jkqrc.com/member/index.php?c=my_rebates" title="猎头悬赏"><i class="com_left_icon com_left_icon_lt"></i>猎头悬赏</a></span>
+					</li>
+							</ul>
+		
+			<ul class="left_nav_ul  none" id="def3"> 
+				<li class="style03">
+					<span>
+						<a href="javascript:void(0)" onclick="jobadd_url(&#39;1&#39;,&#39;0&#39;,&#39;&#39;,&#39;1&#39;,&#39;10&#39;);return false;" class="f60 bold">
+							<i class="com_left_icon com_left_icon_fb"></i>发布新职位
+						</a>
+					</span> 
+				</li>
+				<li class="style03">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=job&amp;w=1" title="发布中的职位" style="color:red;"><i class="com_left_icon com_left_icon_zwgl"></i>职位管理</a>
+					</span>
+				</li>
+				
+								<li class="style03">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=jobpack" title="赏金推广职位"><i class="com_left_icon com_left_icon_hbtgl"></i>赏金推广职位</a>
+					</span>
+				</li>
+												<!--<li  class="style07" >
+					<span><a href="index.php?c=zhaopinhui"><i class="com_left_icon com_left_iconzph"></i>招聘会记录</a></span>
+				</li>-->
+												<!--<li  class="style07" >
+					<span><a href="index.php?c=special" style="color:red;"><i class="com_left_icon com_left_icon_zt"></i>专题招聘</a></span>
+				</li>-->
+												<li class="style07">
+					<span>
+						<a onclick="jobadd_url(&#39;1&#39;,&#39;0&#39;,&#39;part&#39;,&#39;1&#39;,&#39;10&#39;);" title="发布兼职" class="f60 bold" style="cursor:pointer"><i class="com_left_icon com_left_icon_jz"></i>发布兼职</a>
+					</span> 
+				</li>
+				<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=partok&amp;w=1" title="全部兼职"><i class="com_left_icon com_left_icon_jzgl"></i>兼职管理</a></span>
+				</li>
+				<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=partapply" title="兼职报名"><i class="com_left_icon com_left_iconbm"></i>兼职报名</a></span>
+				</li>
+												<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=tongji"><i class="com_left_icon com_left_icon_fx"></i>招聘分析</a></span>
+				</li>
+								<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=xjh"><i class="com_left_icon com_left_icon_zt"></i>宣讲会</a></span>
+				</li>
+												<!--<li  class="style07" >
+					<span><a href="index.php?c=zphnet"><i class="com_left_icon com_left_iconzph"></i>网络招聘会记录</a></span>
+				</li>-->
+							</ul>
+
+			<ul class="left_nav_ul  none" id="def4">
+								<li class="style05">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=pay" title="充值积分">
+							<font color="#FF0000"><i class="com_left_icon com_left_icon_cz"></i>充值积分</font>
+						</a>
+					</span>
+				</li>  
+								<li class="style08">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=paylogtc" title="我的服务"><i class="com_left_icon com_left_icon_myhy"></i>我的服务</a></span>
+				</li>
+								<li class="style12">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=right" style="color:red;">
+							<i class="com_left_icon com_left_icon_fw"></i>VIP招聘服务
+							<i class="com_icon com_icon_new"></i>
+						</a>
+					</span>
+				</li>
+								<li class="style09">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=paylog" title="财务明细"><i class="com_left_icon com_left_icon_mx"></i>财务明细</a></span>
+				</li>
+				<li class="style09">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=jobpack&amp;act=loglist" title="赏金收益">
+							<i class="com_left_icon com_left_icon_hb"></i>赏金收益
+						</a>
+					</span>
+				</li>
+				
+				
+				<li class="style12">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=integral"><i class="com_left_icon com_left_icon_gl"></i>积分管理</a>
+					</span>
+				</li>
+								
+				<li class="style12">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=coupon_list"><i class="com_left_icon com_left_icon_yhq"></i>优惠卡券</a></span>
+				</li>
+				
+	
+								
+								<li class="style07">
+					<span>
+						<a href="http://www.jkqrc.com/member/index.php?c=ad" title="购买广告位"><i class="com_left_icon com_left_icon_ban"></i>购买广告位</a>
+					</span>
+				</li>
+							
+			</ul>
+			
+			<ul class="left_nav_ul  none" id="def7">
+								<li class="style03">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=vs" title="修改密码"><i class="com_left_icon com_left_icon_m"></i>修改密码</a></span> 
+				</li>
+				<li class="style11">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=child" title="子账号"><i class="com_left_icon com_left_icon_xin"></i>子账号</a></span> 
+				</li>
+								<li class="style11">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=sysnews" title="系统消息"><i class="com_left_icon com_left_icon_xin"></i>系统消息</a></span> 
+				</li>
+				
+				<li class="style03">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=msg" title="求职咨询"><i class="com_left_icon com_left_icon_zx"></i>求职咨询</a></span> 
+				</li>
+				
+				<li class="style05">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=pl" title="企业评论"><i class="com_left_icon com_left_icon_pl"></i>面试评价</a></span> 
+				</li>
+								<li class="style09">
+					<span>
+						<a href="http://www.jkqrc.com/ask/c_friend-a_myquestion-uid_16701.html" target="_blank" title="我的问答">
+							<i class="com_left_icon com_left_icon_ask"></i>我的问答
+						</a>
+					</span> 
+				</li>
+                			</ul>
+			
+			
+			<ul class="left_nav_ul  none" id="def8">
+				<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=zphscene"><i class="com_left_icon com_left_iconzph"></i>现场招聘会</a></span>
+				</li>
+								<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=zphnet"><i class="com_left_icon com_left_iconzph"></i>网络招聘会</a></span>
+				</li>
+								
+								<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=special"><i class="com_left_icon com_left_icon_zt"></i>专题招聘会</a></span>
+				</li>
+								<li class="style07">
+					<span><a href="http://www.jkqrc.com/member/index.php?c=zphfenxi"><i class="com_left_icon com_left_icon_fx"></i>招聘会分析</a></span>
+				</li>
+				
+				
+			</ul>
+			
+			
+	</div>
+</div>	
+<script>
+$(function(){
+	$('.left_box_nav_list li').click(function(){
+		
+		var datadef = $(this).attr('data-def');
+		$('.left_nav_ul').addClass('none');
+		$('#def'+datadef).removeClass('none');
+		$('.left_box_nav_cur').removeClass('left_box_nav_cur');
+		$(this).addClass('left_box_nav_cur');
+	});
+})
+</script>
+		
+				
+		
+		<div class="clear"></div>
+		
+		<!--------------------------------  首页---------------------------------------->
+		<div class="comindex_info_box mt20">
+			<div class="com_index_sign_box ">
+				<div class="com_index_sign"><div class="signdiv"><a href="javascript:void(0)" class="left_box_zp_qd">签到</a><div class="sign_main" id="sign_layer">
+		<div class="sign_succ_calendar_title">
+		<div class="calendar_month_span">2020年03月</div>
+		</div>
+		<div class="sign" id="sign_cal"><table><tbody><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr><tr><td class="day1 ">1</td><td class="day2 ">2</td><td class="day3 ">3</td><td class="day4 ">4</td><td class="day5 ">5</td><td class="day6 ">6</td><td class="day7 ">7</td></tr><tr><td class="day8 ">8</td><td class="day9 ">9</td><td class="day10 ">10</td><td class="day11 ">11</td><td class="day12 ">12</td><td class="day13 ">13</td><td class="day14 ">14</td></tr><tr><td class="day15 ">15</td><td class="day16 ">16</td><td class="day17 ">17</td><td class="day18 ">18</td><td class="day19 ">19</td><td class="day20 ">20</td><td class="day21 ">21</td></tr><tr><td class="day22 ">22</td><td class="day23 ">23</td><td class="day24 ">24</td><td class="day25 ">25</td><td class="day26 ">26</td><td class="day27 ">27</td><td class="day28 ">28</td></tr><tr><td class="day29 ">29</td><td class="day30 ">30</td><td class="day31 ">31</td></tr></tbody></table></div></div></div></div>
+			</div>
+			<div class="comindex_info_logo">
+				<div class="comindex_info_logo_img">
+					<a href="http://www.jkqrc.com/member/index.php?c=uppic" class=""> <img src="./企业用户后台管理系统 - 长沙经开区人才网_files/caf449b6993c4ae6880f79202c898fa6.png" width="100" height="100"></a>
+				</div>
+								<a href="http://www.jkqrc.com/member/index.php?c=uppic" class="comindex_info_logo_a cblue">修改LOGO</a>
+							</div>
+
+			<div class="comindex_comname">
+				 
+				
+					蓝思科技（长沙）有限公司-星沙厂区 
+					 <img src="./企业用户后台管理系统 - 长沙经开区人才网_files/14902352353.PNG" width="16">  
+							</div>
+
+			<div class="com_m_index_vip_box">
+				我的服务：<span class="com_m_index_vip_box_c">金牌会员</span>&nbsp;&nbsp;&nbsp;
+				会员服务时间： 
+				<span class="f60"> 
+					 
+						<em class="com_m_index_vip_box_c_3"> 2020.02.21-</em>
+						2021-02-20
+									</span> 
+								<a href="http://www.jkqrc.com/member/index.php?c=right" class="com_m_index_vip_sj"><i class="com_m_index_vip_sj_icon"></i>升级VIP会员</a> 
+										<a href="http://www.jkqrc.com/member/index.php?c=right&amp;act=added" class="com_m_index_vip_a">购买增值包</a>
+												</div>
+			
+			<div class="comindex_rz ">
+			
+				
+				
+				 
+					<a title="手机已验证" href="http://www.jkqrc.com/member/index.php?c=binding" class="comindex_rz_a"> <i class="comindex_rz_icon comindex_rz_sjyrz"></i>手机已验证 </a> 
+				 
+				
+				 
+					<a title="营业执照已验证" href="http://www.jkqrc.com/member/index.php?c=binding" id="biza" class="comindex_rz_a"> <i class="comindex_rz_icon comindex_rz_zzyrz"></i>营业执照已验证 </a> 
+								
+									<a title="微信未绑定" href="http://www.jkqrc.com/member/index.php?c=binding" class="comindex_rz_a"> <i class="comindex_rz_icon comindex_rz_wxwbd"></i>微信未绑定 </a> 
+								
+                 
+					<a title="邮件已验证" href="http://www.jkqrc.com/member/index.php?c=binding" class="comindex_rz_a"> <i class="comindex_rz_icon comindex_rz_yxyrz"></i>邮箱已验证 </a> 
+				 
+             
+	                    	<span class="yun_m_jobshare">
+	                  	<span class="job_share"><i></i>分享到朋友圈
+	                    	<span class="job_share_img" style="display:none;"> 
+																	<img src="./企业用户后台管理系统 - 长沙经开区人才网_files/index.php" width="130" height="130"> 
+									                    	</span>
+	                  	</span>     
+	           		</span> 
+	                  	
+                
+			</div>
+			
+			<div class="comindex_cz">
+				<div class="comindex_cz_list">
+										<a href="http://www.jkqrc.com/member/index.php?c=info" class="comindex_cz_a cblue"><i class="comindex_cz_icon"></i>编辑资料</a> 
+					<i class="comindex_cz_line">|</i>
+										<a href="http://www.jkqrc.com/company/c_show-id_16701.html" target="_blank" class="comindex_cz_a cblue "><i class="comindex_cz_icon comindex_cz_icon_yl"></i>预览主页</a> 
+										<i class="comindex_cz_line">|</i> 
+					<a href="http://www.jkqrc.com/member/index.php?c=comtpl" class="comindex_cz_a cblue"> <i class="comindex_cz_icon comindex_cz_icon_set"></i>模板设置</a>
+						
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="clear"></div>
+        
+		<div class="com_member_newindexbox">
+		
+			<div class="com_member_newindex_data">
+				<div class="com_member_newindex_data_list">
+					<a href="http://www.jkqrc.com/member/index.php?c=hr"> 
+						<span class="com_member_newindex_data_name"><i class="com_member_newindex_data_icon"></i>收到的简历</span> 
+						<span class="com_member_newindex_data_n"> 6  <i class="yun_m_index_data_list_n_new">6</i></span>
+					</a>
+				</div>
+				<div class="com_member_newindex_data_list">
+					<a href="http://www.jkqrc.com/member/index.php?c=msg"> 
+						<span class="com_member_newindex_data_name"> <i class="com_member_newindex_data_icon com_member_newindex_data_icon_zx"></i>求职者咨询</span> 
+						<span class="com_member_newindex_data_n">0</span>
+					</a>
+				</div>
+
+				<div class="com_member_newindex_data_list">
+					<a href="http://www.jkqrc.com/member/index.php?c=attention_me"> 
+						<span class="com_member_newindex_data_name"><i class="com_member_newindex_data_icon com_member_newindex_data_icon_xq"></i>对我感兴趣</span>
+						<span class="com_member_newindex_data_n">0</span>
+					</a>
+				</div>
+
+				<div class="com_member_newindex_data_list">
+					<a href="http://www.jkqrc.com/member/index.php?c=look_job"> 
+						<span class="com_member_newindex_data_name"><i class="com_member_newindex_data_icon com_member_newindex_data_icon_look"></i>谁看过我</span>
+						<span class="com_member_newindex_data_n">68</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="com_member_newindex_service">
+				<div class="com_member_newindex_service_tit">我的招聘资源</div>
+
+				<div class="com_member_newindex_service_p ">
+					可用积分： <span id="integral" class="comindex_money_n" style="font-size: 14px;">1400</span>
+					<em class="comindex_money_m">个</em> , 未支付订单： <a href="http://www.jkqrc.com/member/index.php?c=paylog" style="color: red">0</a>
+					<a href="http://www.jkqrc.com/member/index.php?c=paylog" class="comindex_money_pd_a cblue">去支付</a>
+					<a href="http://www.jkqrc.com/member/index.php?c=pay&amp;type=integral" class="comindex_money_pd_a cblue">充值</a> 
+					<a href="http://www.jkqrc.com/member/index.php?c=paylog&amp;consume=ok" class="comindex_money_pd_a cblue">明细</a>
+                    					<a href="http://www.jkqrc.com/member/index.php?c=integral" class="comindex_money_pd_a cblue">做任务赚积分</a>
+					<a href="http://www.jkqrc.com/member/index.php?c=integral_reduce">消费规则&gt;&gt;</a>
+                    				</div>
+				
+				<div class="com_member_newindex_service_listbox">
+					<div class="com_member_newindex_service_list">
+						<div class="com_member_newindex_service_mx">
+							已发布职位数：<span class="com_member_newindex_service_data">2</span> 份
+						</div>
+						<div class="com_member_newindex_service_mx">
+							还可发布职位数：<span class="com_member_newindex_service_data">
+															998
+															</span><font color="#333">份</font> 
+							
+						</div>
+						<div class="com_member_newindex_service_bthbox">
+							<a href="javascript:void(0)" onclick="jobadd_url(&#39;1&#39;,&#39;0&#39;,&#39;&#39;,&#39;1&#39;,&#39;10&#39;);return false;" class="com_member_newindex_service_bth">发布新职位</a>
+							<a href="http://www.jkqrc.com/member/index.php?c=job&amp;w=1" class="com_member_newindex_service_otherbth">管理职位</a>
+						</div>
+						
+					</div>
+
+					<div class="com_member_newindex_service_list">
+
+						<div class="com_member_newindex_service_mx">
+							刷新职位数：<span class="com_member_newindex_service_data">0</span> 份
+						</div>
+						<div class="com_member_newindex_service_mx">
+							还可刷新职位数：<span class="com_member_newindex_service_data">
+															1000
+														</span><font color="#333">份</font>
+						</div>
+						<div class="com_member_newindex_service_bthbox">
+							<a href="javascript:;" onclick="return refreshJob(&#39;3834,3833&#39;,&#39;1000&#39;);" class="com_member_newindex_service_bth" style=" background:#1296db">刷新职位</a> 
+							<a href="http://www.jkqrc.com/member/index.php?c=job&amp;w=1" class="com_member_newindex_service_otherbth" style=" background:#1eaa39">置顶职位</a>
+						</div>
+						
+					</div>
+
+					<div class="com_member_newindex_service_list">
+						<div class="com_member_newindex_service_mx">
+							剩余下载数：<span class="com_member_newindex_service_data">
+															1000
+														</span><font color="#333">份</font>
+						</div>
+						<div class="com_member_newindex_service_mx">
+							剩余邀请数：<span class="com_member_newindex_service_data">
+															1000
+														</span><font color="#333">份</font>
+						</div>
+						<div class="com_member_newindex_service_bthbox">
+							<a href="http://www.jkqrc.com/member/index.php?c=hr" class="com_member_newindex_service_bth" style=" background:#2d8cf0">查看简历</a>
+							<a href="http://www.jkqrc.com/member/index.php?c=resume" class="com_member_newindex_service_otherbth" style="background:#f60">搜索简历</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="com_member_newindex_user">
+				<div class="com_member_newindex_user_tit">
+					智能推荐简历<a href="http://www.jkqrc.com/member/index.php?c=attention_me" class="com_member_newindex_user_more">关注我的人才&gt;</a>
+				</div>
+				<div id="resumelist"><div class="com_member_newindex_userlist"><div class="com_member_newindex_userpic"><a href="http://www.jkqrc.com/resume/c_show-id_4233.html" target="_blank"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/15849519368865.png" width="40" height="40" title="简钟"></a></div><div class="com_member_newindex_username"><a href="http://www.jkqrc.com/resume/c_show-id_4233.html" target="_blank">简钟</a></div><div class="com_member_newindex_userinfo">教育程度经验<span class="com_member_newindex_userline">|</span></div><div class="com_member_newindex_userwant">想找<span class="com_member_newindex_userwantjob">渠道/分销专员</span>的工作</div><div class="com_member_newindex_userms"><a href="http://www.jkqrc.com/resume/c_show-id_4233.html" class="com_member_newindex_usermsbth">邀请面试</a></div></div><div class="com_member_newindex_userlist"><div class="com_member_newindex_userpic"><a href="http://www.jkqrc.com/resume/c_show-id_8710.html" target="_blank"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/14947989259.PNG" width="40" height="40" title="彭俊"></a></div><div class="com_member_newindex_username"><a href="http://www.jkqrc.com/resume/c_show-id_8710.html" target="_blank">彭俊</a></div><div class="com_member_newindex_userinfo">高中以下经验<span class="com_member_newindex_userline">|</span></div><div class="com_member_newindex_userwant">想找<span class="com_member_newindex_userwantjob"></span>的工作</div><div class="com_member_newindex_userms"><a href="http://www.jkqrc.com/resume/c_show-id_8710.html" class="com_member_newindex_usermsbth">邀请面试</a></div></div><div class="com_member_newindex_userlist"><div class="com_member_newindex_userpic"><a href="http://www.jkqrc.com/resume/c_show-id_8709.html" target="_blank"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/14922051316.PNG" width="40" height="40" title="王丹"></a></div><div class="com_member_newindex_username"><a href="http://www.jkqrc.com/resume/c_show-id_8709.html" target="_blank">王丹</a></div><div class="com_member_newindex_userinfo"><span class="com_member_newindex_userline">|</span></div><div class="com_member_newindex_userwant">想找<span class="com_member_newindex_userwantjob"></span>的工作</div><div class="com_member_newindex_userms"><a href="http://www.jkqrc.com/resume/c_show-id_8709.html" class="com_member_newindex_usermsbth">邀请面试</a></div></div><div class="com_member_newindex_userlist"><div class="com_member_newindex_userpic"><a href="http://www.jkqrc.com/resume/c_show-id_8708.html" target="_blank"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/14922051316.PNG" width="40" height="40" title="刘艳"></a></div><div class="com_member_newindex_username"><a href="http://www.jkqrc.com/resume/c_show-id_8708.html" target="_blank">刘艳</a></div><div class="com_member_newindex_userinfo"><span class="com_member_newindex_userline">|</span></div><div class="com_member_newindex_userwant">想找<span class="com_member_newindex_userwantjob"></span>的工作</div><div class="com_member_newindex_userms"><a href="http://www.jkqrc.com/resume/c_show-id_8708.html" class="com_member_newindex_usermsbth">邀请面试</a></div></div><div class="com_member_newindex_userlist"><div class="com_member_newindex_userpic"><a href="http://www.jkqrc.com/resume/c_show-id_8704.html" target="_blank"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/14922051316.PNG" width="40" height="40" title="李想"></a></div><div class="com_member_newindex_username"><a href="http://www.jkqrc.com/resume/c_show-id_8704.html" target="_blank">李想</a></div><div class="com_member_newindex_userinfo">高中以下经验<span class="com_member_newindex_userline">|</span></div><div class="com_member_newindex_userwant">想找<span class="com_member_newindex_userwantjob"></span>的工作</div><div class="com_member_newindex_userms"><a href="http://www.jkqrc.com/resume/c_show-id_8704.html" class="com_member_newindex_usermsbth">邀请面试</a></div></div><div class="com_member_newindex_userlist"><div class="com_member_newindex_userpic"><a href="http://www.jkqrc.com/resume/c_show-id_8698.html" target="_blank"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/14947989259.PNG" width="40" height="40" title="苏先生"></a></div><div class="com_member_newindex_username"><a href="http://www.jkqrc.com/resume/c_show-id_8698.html" target="_blank">苏先生</a></div><div class="com_member_newindex_userinfo"><span class="com_member_newindex_userline">|</span></div><div class="com_member_newindex_userwant">想找<span class="com_member_newindex_userwantjob"></span>的工作</div><div class="com_member_newindex_userms"><a href="http://www.jkqrc.com/resume/c_show-id_8698.html" class="com_member_newindex_usermsbth">邀请面试</a></div></div></div>
+			</div>
+
+			<div class="com_member_newindexrightbox">
+				
+				<div class="com_member_newindex_banner">
+					<a href="http://www.jkqrc.com/member/index.php?c=right"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/banner_hy.png" width="235" height="160"></a>
+				</div>
+				
+				
+				<div class="com_m_index_kjcz">
+
+					<div class="com_m_index_kjcz_tit">快捷操作</div>
+				
+					<div class="com_m_index_kjcz_p">
+						<a href="javascript:;" onclick="return refreshJob(&#39;3834,3833&#39;);"><i class="com_m_index_kjcz_p_icon"></i>刷新职位</a> 
+						<input type="hidden" id="refreshjobids" value="">
+					</div>
+					<div class="com_m_index_kjcz_p">
+						<a href="javascript:void(0)" onclick="jobadd_url(&#39;1&#39;,&#39;0&#39;,&#39;&#39;,&#39;1&#39;,&#39;10&#39;);return false;">
+							<i class="com_m_index_kjcz_p_icon com_m_index_kjcz_p_icon_fb"></i>发布职位
+						</a>
+					</div>
+					<div class="com_m_index_kjcz_p">
+						<a href="http://www.jkqrc.com/member/index.php?c=job&amp;w=1"> <i class="com_m_index_kjcz_p_icon com_m_index_kjcz_p_icon_zd"></i>置顶职位 </a>
+					</div>
+				</div>
+
+				<div class="com_member_newindex_customerservice">
+										<div class="com_index_kf ">
+                    
+                   
+                        
+						<div class="com_index_kf_box mt10">
+							<div class="com_index_kf_box_user">
+								<div class="com_index_kf_box_user_photo">
+									<img src="./企业用户后台管理系统 - 长沙经开区人才网_files/14937863721.PNG" style="width: 50px; height: 50px">
+								</div>
+
+								<div class="com_index_kf_box_username">网站客服</div>
+
+								<div class="">
+									 
+										<a target="_blank" href="tencent://message/?uin=254030432&amp;Site=%E9%95%BF%E6%B2%99%E7%BB%8F%E5%BC%80%E5%8C%BA%E4%BA%BA%E6%89%8D%E7%BD%91&amp;Menu=yes">
+											<img src="./企业用户后台管理系统 - 长沙经开区人才网_files/qqicon.png">
+										</a> 
+																	</div>
+
+							</div>
+
+							<div class="com_index_kf_p">电话：<span class="com_index_kf_tel">0731-84020836</span></div>
+							<div class="com_index_kf_p">手机：<span class="com_index_kf_tel">13974919810</span></div>
+							<div class="com_index_kf_wx"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/15892329615.jpg" width="130" height="130"></div>
+                     		<div class="com_index_kf_wxh">↑ 扫码添加客服微信 ↑</div>
+                             
+                                
+						</div>
+					</div>
+									</div>
+
+				<div class="com_member_newindex_wx">
+					<div class="com_member_newindex_wx_gz">关注官方微信</div>
+					<div class="com_member_newindex_wx_p">随时随地接收简历</div>
+					<div class="">
+						<img src="./企业用户后台管理系统 - 长沙经开区人才网_files/15892329615.jpg" width="130" height="130">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--投诉顾问弹出框-->
+<div id="" style="display: none;">
+	<div class="Binding_pop_box" style="padding: 10px; width: 350px; height: 200px; background: #fff;">
+		<div class="complaint_hi">尊敬的用户您好！</div>
+		<div class="complaint_p">为了能够给您提供高质量的服务，反馈具体情况，我们会第一时间给您满意的答复！</div>
+		<div class="complaint_p_gw" style="padding: 10px 0; color: #f00">您要投诉的顾问是：</div>
+		<div class="popjb_tip"></div>
+		<div class="">
+			<textarea id="reason" name="reason" class="complaint_text"></textarea>
+		</div>
+		<div class="complaint_bot">
+			<input class="com_pop_bth_qd" onclick="reportSub(&#39;index.php?c=report&#39;)" type="button" value="确定">
+			<input type="hidden" value="" id="eid" name="eid"> 
+			<input class="com_pop_bth_qx" type="button" value="取消" onclick="layer.close($(&#39;#layindex&#39;).val());">
+		</div>
+	</div>
+</div>
+
+<!--刷新职位提示弹出框-->
+<div id="shuaxin" style="display: none;" class="">
+	<div class="yun_prompt_writingicon" style="padding-top: 0px">
+		<i class="yun_prompt_writingicon_pm"></i>
+	</div>
+	<div class="yun_prompt_writing">刷新职位 , 提升排名</div>
+	<div class="yun_prompt_writing_obtain">刷新职位引起求职者的关注，提高投递率</div>
+	<div class="yun_prompt_writing_tip">刷新职位，可提升职位的显示排名，从而提高职位的曝光率</div>
+	<div class="yun_prompt_writing_operation">
+		<a href="javascript:void(0)" onclick="refreshJob(&#39;3834,3833&#39;,&#39;1000&#39;);" class="yun_prompt_writing_operation_bth">立即刷新职位</a> 
+		<a class="sx_bot_qx" href="javascript:void(0)">暂不刷新</a>
+	</div>
+</div>
+
+<!-- 会员到期，续费提醒 -->
+<div id="updaterating" style="display: none;">
+	<div class="renew_box">
+		<div class="renew_hello">尊敬的企业用户您好</div>
+		<div class="renew_p">
+			你的会员服务<font color="#f00">已到期</font>，服务期限：<font color="#999">2020.02.21-2021-02-20</font>
+			为了不影响您正常使用招聘服务，您可以致电客户经理或自助办理续费
+		</div>
+		<div class="renew_gx">非常感谢您一直以来的支持与厚爱！</div>
+		<div class="renew_xf">
+			<a class="renew_bth" href="http://www.jkqrc.com/member/index.php?c=right">自助续费</a>
+			<a class="renew_bth_qx" href="javascript:void(0)">先看看 ,再续费</a>
+		</div>
+	</div>
+</div>
+
+<!--优惠券提示-->
+<div id="yhq_tip" class="yhq_tip" style="display: none;">
+<div class="yhq_tip_c">
+<a href="javascript:void(0)" class="yhq_tip_close">关闭</a>
+<div class="yhq_tip_h1">恭喜您获得</div>
+<div class="yhq_tip_h2">用户专享优惠券</div>
+<div class="yhq_tip_box">
+<div class="yhq_tip_n"><span class="yhq_tip_n_f">￥</span></div>
+<div class="">使用时间： 至 </div>
+</div>
+<div class="yhq_tip_bth"><a href="javascript:void(0)" onclick="couponuse(&#39;&#39;)" class="yhq_tip_bth_a">立即使用</a></div>
+<div class="yhq_tip_kf">如有疑问请与客服联系</div>
+<div class="yhq_tip_kf">0731-84020836</div>
+
+</div>
+</div>
+
+
+<div id="wxbd" style="display: none;">
+	<div class="yun_wxbd_tit">关注微信公众号，手机轻松招人</div>
+	<div class="yun_wxbd_box">
+		<div class="yun_wxbd_img_c">
+			<div class="yun_wxbd_img">
+				<img src="./企业用户后台管理系统 - 长沙经开区人才网_files/showqrcode" width="180" height="180">
+			</div>
+		</div>
+		<div class="yun_wxbd_p"> 扫码关注公众号</div>
+		<div class="yun_wxbd_ok">
+			<a class="sx_bot_qx" href="javascript:void(0)">好，知道了</a>
+		</div>
+	</div>
+</div>
+
+<!--提示弹出框 end-->
+
+<script type="text/javascript">
+
+    var jobrefresh = '';
+
+    layui.use(['layer'], function () {
+        var layer = layui.layer,
+            $ = layui.$;
+        ''
+       
+        var shuaxinlayer = layer.open({
+            type: 1,
+            title: '刷新职位',
+            closeBtn: 0,
+            border: [10, 0.3, '#000', true],
+            area: ['500px', '330px'],
+            content: $("#shuaxin")
+        });
+
+        $(".sx_bot_qx").click(function () {
+            layer.close(shuaxinlayer);
+        })
+
+        ''
+    });
+   
+    $(document).ready(function () {
+        
+        	$(".job_share").hover(function() {
+     	
+ 			var html = $(this).find('.job_share_img').html();
+            
+     		layer.tips(html, this, {
+                guide: 1,
+				time:0,
+                style: ['background-color:#5EA7DC;', '#5EA7DC']
+            });
+      		
+        }, function() {
+        	
+            layer.closeAll('tips');
+        });
+        
+        
+        
+
+        $('.wxtitle').click(function () {
+            var wxlayer = layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                border: [10, 0.3, '#000', true],
+                area: ['300px', 'auto'],
+                content: $("#wxbd")
+            });
+
+            $(".sx_bot_qx").click(function () {
+                layer.close(wxlayer);
+            })
+        });
+		
+		var spid='0';
+		var company_r_status='1';
+		var companyname='蓝思科技（长沙）有限公司-星沙厂区';
+		var yyzz='Array';
+		var vipIsDown='';
+		var statisremind='';
+		
+		if (spid=='0' && (company_r_status != 1 || !companyname || !yyzz || vipIsDown || (statisremind==1  && !vipIsDown))){
+
+			$(".yun_Announcement").attr("style","display:block;");
+		}else{
+			$(".yun_Announcement").attr("style","display:none;");
+		}
+		
+		setTimeout(function(){
+			hsresumelist('2');
+		},200);
+    })
+    function reportgw(eid, title) {
+        var layindex = $.layer({
+            type: 1,
+            title: title,
+            closeBtn: [0, true],
+            border: [10, 0.3, '#000', true],
+            area: ['400px', '330px'],
+            page: {
+                dom: "#" + eid
+            }
+        });
+        $("#layindex").val(layindex);
+    }
+
+    function reportSub(url) {
+        var reason 	= $("#reason").val();
+        var eid 	= $("#eid").val();
+        if (reason == '') {
+            layer.msg('请填写投诉内容！', 2, 8);
+            return false;
+        }
+        loadlayer();
+        $.post(url, {
+            reason: reason,
+            eid: eid
+        }, function (data) {
+            layer.closeAll('loading');
+            layer.close($('#layindex').val());
+            if (data == '0') {
+                layer.msg('投诉失败！', 2, 8);
+            } else if (data == '1') {
+                layer.msg('投诉成功！', 2, 9, function () {
+                    window.location.reload();
+                });
+            } else if (data == '2') {
+                layer.msg('已投诉成功，等待管理员回复！', 2, 8);
+            }
+        });
+    }
+
+    function supportCrm(id) {
+        loadlayer();
+        $.post("index.php?m=ajax&c=guwenZan", {
+            id: id
+        }, function (data) {
+            layer.closeAll('loading');
+            if (data == '2') {
+                layer.msg('请不要重复点赞！', 2, 8);
+            } else {
+                layer.msg('点赞成功！', 2, 9, function () {
+                    window.location.reload();
+                });
+            }
+        });
+    }
+
+    function hsresumelist(jobnum) {
+
+		$.get('index.php?c=index&act=resumeajax', {rand: Math.random()}, function (data) {
+
+		    var res = JSON.parse(data);
+		    if (res.list.length > 0) {
+		        var html = '';
+		        for (var i = 0; i < res.list.length; i++) {
+		            html += '<div class="com_member_newindex_userlist">';
+		            html += '<div class="com_member_newindex_userpic">';
+		            html += '<a href="' + res.list[i].resumeurl + '" target="_blank"><img src="' + res.list[i].photo + '" width="40" height="40" title="' + res.list[i].username_n + '"/></a>';    
+		            html += '</div>';
+		            html += '<div class="com_member_newindex_username">';
+		            html += '<a href="' + res.list[i].resumeurl + '" target="_blank">' + res.list[i].username_n + '</a>';    
+		            html += '</div>';
+		            html += '<div class="com_member_newindex_userinfo">';
+		            html += res.list[i].exp_n+'<span class="com_member_newindex_userline">|</span>'+res.list[i].edu_n;
+		            html += '</div>';
+		            html += '<div class="com_member_newindex_userwant">';
+		            html += '想找<span class="com_member_newindex_userwantjob">' + res.list[i].jobname + '</span>的工作';
+		            html += '</div>';
+		            html += '<div class="com_member_newindex_userms">';
+		            html += '<a href="' + res.list[i].resumeurl + '" class="com_member_newindex_usermsbth">邀请面试</a>';
+		            html += '</div>';
+		            html += '</div>';
+		        }
+		        $("#resumelist").prepend(html);
+		    } else {
+		        $("#noresumelist").removeClass('none');
+		    }
+		})
+    }
+    
+    function notweixin() {
+        layer.msg('网站暂未绑定微信公众号，请联系管理员，电话：0731-84020836' , 2, 8);
+    }
+	
+	''
+	
+	function couponuse(couponid){
+      $.post('index.php?c=index&act=couponsee',{couponid:couponid},function(data){
+        window.location.href ="index.php?c=right";
+      });
+  }
+	
+</script>
+	<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/chat.js"></script>
+			<script type="text/javascript">
+			var socket = null,
+				socketUrl = "wss://yunliao.phpyun.com/wss",
+				weburl = "http://www.jkqrc.com",
+				toid = '',
+				mine = {usertype: '2'},
+				sendTime = 0,
+				pastSend = 0,
+				newChatMsg = false,
+				titledsq = null,
+				chat_name = '直聊';
+				getUnread();
+				
+			function getUnread(){
+				$.get(weburl+"/index.php?m=ajax&c=msgNum",function(data){ 
+					var datas=eval("(" + data + ")");
+					if(datas.chatNum){
+						$('#memberNoChat').addClass('none');
+						$('#memberHaveChat').removeClass('none');
+						$('#memberChatNum').text(datas.chatNum);
+						if (typeof(newChatMsg) != "undefined") {
+							newChatMsg = true;
+						}
+					}else{
+						$('#memberNoChat').removeClass('none');
+						$('#memberHaveChat').addClass('none');
+						$('#memberChatNum').text('');
+					}
+				})
+			}
+		</script>
+				<script src="./企业用户后台管理系统 - 长沙经开区人才网_files/websocket.js"></script>
+		<div id="memberNoChat" class="chat_box none" onclick="goChat()">
+			<div class="chat_box_c"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/15893787621.png"> <span>直聊</span></div>
+		</div>
+        <div id="memberHaveChat" class="chat_box chat_box_news" onclick="goChat()">
+            <div class="chat_box_c"><img src="./企业用户后台管理系统 - 长沙经开区人才网_files/15893787621.png"> <span> 有新消息<span id="memberChatNum" class="chat_n">9</span></span></div>
+		</div>
+		<div id="zwf" class="none">【&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;】</div>
+		<style>
+		.chat_box{width:160px;height:50px; line-height:50px; position:fixed;right:0px;bottom:0px;border-radius: 2px;box-shadow: 1px 1px 50px rgba(0,0,0,.3); background:#fff ; cursor:pointer; z-index:100000000;}
+		.chat_box_c{padding-left:50px; position:relative}
+		.chat_box img{width:30px;height:30px; position:absolute;left:10px;top:10px; }
+		.chat_box_news img{animation: rotate 1s infinite; -moz-animation: rotate 1s infinite;; -ms-animation: rotate 1s infinite; -o-animation: rotate 1s infinite; -webkit-animation: rotate 1s ease-in  infinite ;}
+		@keyframes rotate {
+		0% { opacity:0 ;}
+		100% {opacity:1;}
+		}
+		.chat_n{font-size: 12px;background: red;color: #fff;border: none;border-radius: 15px;line-height: 16px;padding: 0 5px; margin-left:10px;}
+		.chat_box_news{ background:#fff;}
+		</style>
+			
+
+<!-- layui 当前显示弹出框index-->
+<input type="hidden" id="layindex" value="">
+
+<div class="clear"></div>
+
+<div class="footer">
+    <div class="w900">
+        <div class="footernav">
+            <div class="footer_bot_p">主办单位：长沙经开区人力资源公共服务中心湘ICP备14001014号 </div>
+            <div class="footer_bot_p">地址:长沙县三一路2号经济技术开发区管委会院内 电话(Tel):0731-84020836 EMAIL:csjkq@163.com</div>
+            <div class="footer_bot_p">Powered by<a target="_blank" href="http://www.jkqrc.com/"> jkqrc.</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div id="uclogin" style="display:none"></div>
+
+<div class="clear"></div>
+
+
+<div class="yun_tipsbox" style="display: none;z-index:100000000000;" id="tcmsg">
+    
+	<div class="yun_tipsboxbox">
+		<div id="tcbox">
+		<div class="yun_tipsboxbox_hello">尊敬的企业用户您好！</div>
+		
+		<div class="yun_tipsboxbox_level">
+			您当前是<span class="yun_tipsboxbox_level_name">金牌会员</span>，您的套餐已用完，升级会员享受更多特权，选择适合您的企业VIP套餐
+		</div>
+		
+		<ul class="buymeal_tit" id="rating_type">
+			
+			 
+				<li class="buymeal_tit_cur" rating="1"><a><span class="buymeal_tit_name">套餐会员</span><em class="buymeal_p">购买套餐会员更划算</em></a><span class="buymeal_tit_tj">推荐</span></li>
+			 
+			
+			 
+			
+						
+							<li rating="4"><a><span class="buymeal_tit_name">单项购买</span><em class="buymeal_p">组合购买更优惠</em></a></li>
+						
+					</ul>
+		
+		<!--套餐展示区start-->
+		<div class="buymeal_cont rating_type" id="rating_1">
+			<div class="layui-carousel" id="vip_1" lay-anim="" style="width: 748px; height: 280px;">
+				<div carousel-item="">
+									</div>
+			</div>
+		</div>
+		<!--展示区 end-->
+		
+		<!--时间模式展示区start-->
+		<div class="buymeal_cont rating_type none" id="rating_2">
+			<div class="layui-carousel" id="vip_2" lay-anim="" style="width: 748px; height: 280px;">
+				<div carousel-item="">
+									</div>
+			</div>
+		</div>
+		<!--展示区 end-->
+		
+		<!--增值包模式展示区start-->
+		<div class="buymeal_incrementcont rating_type none" id="rating_3">
+			<div class="buymeal_incrementbox">
+				<table class="buymeal_increment" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<th align="left" width="150">套餐名称</th>
+						<th align="left">套餐资源</th>
+						<th width="80">普通会员价</th>
+						<th width="100">VIP会员价</th>
+						<th>操作</th>
+					</tr>
+					 				</tbody></table>
+			</div>
+		</div>
+		<!--展示区 end-->
+		</div>
+		<!-- 单份消费形式 start -->
+		<div class="rating_type none" id="rating_4">
+			
+			<div class="single_outobox">
+			
+								
+				<!--情况四，金额抵扣消费模式-->
+				<div class="new_pattern_paybox" style="padding-top:5px;">
+					<div id="dayslist" class="new_pattern_paylist none">
+						<span id="promote_name" class="new_pattern_paylist_name">置顶时长：</span>
+						<span class="new_pattern_paylist_choice"><input type="radio" name="days" value="1" onclick="checkRadio(this.value,&#39;radio&#39;)" checked="true">1天</span>
+						<span class="new_pattern_paylist_choice"><input type="radio" name="days" value="3" onclick="checkRadio(this.value,&#39;radio&#39;)">3天</span>
+						<span class="new_pattern_paylist_choice"><input type="radio" name="days" value="7" onclick="checkRadio(this.value,&#39;radio&#39;)">7天</span>
+						<span class="new_pattern_paylist_choice"><input type="radio" name="days" value="15" onclick="checkRadio(this.value,&#39;radio&#39;)">15天</span>
+						<span class="new_pattern_paylist_choice"><input type="radio" name="days" value="30" onclick="checkRadio(this.value,&#39;radio&#39;)">30天</span>
+						<input type="text" id="xdays" name="xdays" onclick="radioClean(this.value)" onkeyup="checkRadio(this.value,&#39;input&#39;)" maxlength="3" oninput="myFunction(this)" value="" placeholder="自定义置顶天数" class="new_pattern_paylist_choice_text">
+					</div>
+					<div class="new_pattern_paylist">
+						<span class="new_pattern_paylist_name">所需金额:</span>  
+						<div class="new_pattern_paylist_tip">本次操作需支付<span class="single_box_price" id="price_int"></span>元</div>
+					</div>
+					
+					<div class="single_list coupon_div">
+						<span class="single_left">使用优惠券：</span>
+	    
+					    <div class="yun_purchase_yhq" onmousemove="_couponList(&#39;show&#39;);" onmouseout="_couponList(&#39;hide&#39;);"> 
+					    	<span id="yhq_name_n">请选择</span>
+						    <div class="yun_purchase_yhqbox coupon_sel_div" style="display:none;">
+							    <ul id="coupon_list_single_member">
+								    							    	<li onclick="chCoupon(&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;);"><span class="yun_purchase_yhq_xz" id="single_"></span>不使用优惠券</li>
+							    </ul>   
+						    </div>
+					    </div>
+					</div>
+					
+										<div class="single_list" id="integral_dk_div">
+						<span class="single_left">积分抵扣：</span>
+						<input type="text" id="server_integral_dk" value="" placeholder="请输入要抵扣的积分数" maxlength="6" onkeyup="checkIntegralDKSingle(1400,10);" oninput="myFunction(this)" class="single_text" autocomplete="off">
+						<span class="single_dq">您当前拥有<span class="single_box_price">1400</span>积分</span>
+					</div>
+										
+					<div class="coupon_single_member none">
+								
+						<div class="single_list"><span class="single_left">优惠券支付：</span><span class="single_payprice"><em class="single_payprice_n" id="order_coupon"></em> 元</span></div>
+						<div class="single_list">
+                         	<span class="single_left">&nbsp;</span>
+							<a href="javascript:void(0);" onclick="couponBuy();" class="single_bth">确认购买</a>
+						</div>
+					</div>
+					
+					<div class="price_single_member">
+					
+						<div class="single_list">
+							<span class="single_left">需支付：</span>
+							<span class="single_payprice"><em class="single_payprice_n" id="single_order_price"></em> 元</span>
+						</div>
+						<form name="alipayment" id="payform_server" action="http://www.jkqrc.com/api/alipay/alipayto.php" method="post" target="_blank" onsubmit="return payforms(&#39;single&#39;);">
+							<div class="single_list" id="server_pay_div">
+								 
+							</div>
+							
+							<input type="hidden" id="pay_type" name="pay_type" value="">
+	                		<input type="hidden" id="order_single_id" name="dingdan" value="">
+	                		<input type="hidden" id="server_subject" name="subject" value="">
+	                		<input type="hidden" name="pay_bank" value="directPay">
+	                		
+	                		<div class="single_list none" id="server_integral_div">
+	                         	<span class="single_left">&nbsp;</span>
+								<a href="javascript:void(0);" onclick="integralBuy();" class="single_bth">确认购买</a>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		<!-- 单份消费 end-->
+			</div>
+</div>
+
+
+<input type="hidden" name="orderid" id="orderid" value="">
+<input type="hidden" name="ratingid" id="ratingid" value="">
+<input type="hidden" name="comserviceid" id="comserviceid" value="">
+<input type="hidden" name="promoteid" id="promoteid" value="">
+<input type="hidden" name="partids" id="partids" value="">
+<input type="hidden" name="jobids" id="jobids" value="">
+<input type="hidden" name="eid" id="eid" value="">
+<input type="hidden" name="chatid" id="chatid" value="">
+<input type="hidden" name="zid" id="zid" value="">
+<input type="hidden" name="bid" id="bid" value="">
+
+<input type="hidden" id="coupon_id" value="">
+<input type="hidden" id="coupon_price" value="">
+<input type="hidden" id="integral_pro" value="10">
+<input type="hidden" id="integral_min" value="100">
+<input type="hidden" id="integral_online" value="1">
+<input type="hidden" id="user_integral_all" value="1400">
+<input type="hidden" id="is_member" value="1">
+
+<!-- 服务价格显示参数begin -->
+<!-- 服务 -->
+<input type="hidden" id="pay_server" value="">
+<!-- 价格 -->
+<input type="hidden" id="server_intrgral_name" value="">
+<input type="hidden" id="server_integral_job" value="0">
+<input type="hidden" id="server_integral_jobefresh" value="0">
+<input type="hidden" id="server_integral_chat_num" value="">
+<input type="hidden" id="server_integral_sons_num" value="0">
+<input type="hidden" id="server_integral_interview" value="0">
+<input type="hidden" id="server_com_recjob" value="5">
+<input type="hidden" id="server_com_urgent" value="5">
+<input type="hidden" id="server_integral_job_top" value="5">
+<input type="hidden" id="server_job_auto" value="5">
+<input type="hidden" id="jobautoids" value="">
+<!-- 服务价格显示参数end -->
+
+<!--以上购买产品点击购买弹出的样式为统一下方样式-->
+<!--方式一.金额购买-->
+<div class="yun_purchase_payment mt20 none" style="margin-left:20px;" id="buyVipDiv_1">
+
+	<div class="yun_purchase_payment_tit">
+		<span class="yun_purchase_payment_titname">购买<span id="service_name_1"></span></span>
+ 	</div>
+	
+	<div class="yun_purchase_payment_list">
+		<span class="yun_purchase_payment_listname">产品价格：</span>
+		<div class="yun_purchase_payment_price">
+			<span class="yun_purchase_payment_price_n" id="service_price_1"></span> 元 
+			<span class="yun_purchase_payment_price_yj" id="origin_tag_1">原价：<i class="buymeal_original_price_delete" id="service_origin_price_1"></i></span>
+		</div>
+	</div>
+	
+	<!-- 优惠券 -->
+	<div class="yun_purchase_payment_list coupon_div_vip">
+		<span class="yun_purchase_payment_listname">使用优惠券：</span>
+		    
+	    <div class="yun_purchase_yhq" onmousemove="_couponList(&#39;show&#39;);" onmouseout="_couponList(&#39;hide&#39;);"> 
+	    	<span id="coupon_value_1">请选择</span>
+		    <div class="yun_purchase_yhqbox coupon_sel_div" style="display:none;">
+			    <ul id="coupon_list_vip">
+				    			    	<li onclick="chVipCoupon(&#39;&#39;,&#39;&#39;,&#39;&#39;,&#39;&#39;);"><span class="yun_purchase_yhq_xz" id="vipCoupon_"></span>不使用优惠券</li>
+			    </ul>   
+		    </div>
+	    </div>
+	</div>
+	<!-- 优惠券End -->
+	
+			
+		<div class="yun_purchase_payment_list">
+			<span class="yun_purchase_payment_listname">积分抵扣：</span>
+			<input type="text" value="" placeholder="请输入抵扣数量" id="integral_dk_vip" name="integral_dk_vip" oninput="myFunction(this)" onkeyup="checkIntegralDK(&#39;1400&#39;,&#39;10&#39;,&#39;1&#39;);" class="yun_purchase_text">
+			<span class="single_dq">您当前拥有<span class="single_box_price">1400</span>积分</span>
+		</div>
+		
+		
+	<div class="coupon_1" style="display:none;">
+		
+		<div class="yun_purchase_payment_list">
+			<span class="yun_purchase_payment_listname">优惠券支付：</span>
+			<span class="single_payprice"><em class="single_payprice_n" id="vip_coupon_price_1">0</em> 元</span>
+		</div>
+		
+		<div class="single_bthbox">
+			<a href="javascript:void(0);" onclick="couponBuy();" class="single_bth">确认购买</a>
+		</div>
+	</div>
+	
+	<div class="price_1">
+		<div class="yun_purchase_payment_list">
+			<span class="yun_purchase_payment_listname">需支付：</span>
+			<span class="single_payprice"><em class="single_payprice_n" id="vip_order_price_1">0</em> 元</span>
+		</div>
+		
+		<form name="alipayment" id="payform_vip" action="http://www.jkqrc.com/api/alipay/alipayto.php" method="post" target="_blank" onsubmit="return payforms(&#39;vip&#39;);">
+			<div class="yun_purchase_payment_list" id="vip_pay_div">
+			 				</div>
+			<input type="hidden" id="pay_type_vip" name="pay_type" value="">
+			<input type="hidden" id="order_vip_id" name="dingdan" value="">
+			<input type="hidden" id="subject_1" name="subject" value="购买会员">
+			<input type="hidden" name="pay_bank" value="directPay">
+			<div class="single_bthbox none" id="vip_integral_div">
+				<a href="javascript:void(0);" onclick="integralBuy();" class="single_bth">确认购买</a>
+			</div>
+		</form>
+	</div>
+</div>
+<!--  微信tck-->
+<div id="wxpayTx" style="display:none;">
+    <div class="wx_payment">
+        <div class="wx_payment_cont">
+            <div class="wx_payment_ewm">正在加载微信二维码,请稍候....</div>
+        </div>
+        <div class="wx_payment_h2">二维码有效时长为2小时，请尽快支付</div>
+        <div class="wx_payment_tip">
+            <div class="wx_payment_tip_left">
+                <i class="wx_payment_tip_line1"></i>
+                <i class="wx_payment_tip_line2"></i>
+                <i class="wx_payment_tip_line3"></i>
+            </div>
+            <div class="wx_payment_tip_right">请使用微信扫一扫<br>扫描二维码支付</div>
+        </div>
+    </div>
+</div>
+
+<!--支付弹出框-->
+<div id="payshow" style="width:450px; position:absolute;left:0px;top:0px; background:#fff; display:none;">
+    <div class="payment_tip">
+        请在新打开的支付页面上完成付款，付款完成前请不要关闭此窗口。<br> 如您在支付过程中遇到问题，请联系客服：
+        <span class="payment_tip_s">0731-84020836</span>
+    </div>
+    <div class="payment_bottom">
+		        <a href="http://www.jkqrc.com/member/index.php?c=paylog" class="payment_bottombutt">已完成付款</a>
+        <a href="http://www.jkqrc.com/member/index.php?c=payment&amp;id=" class="payment_bottom_bth2">重新支付</a>
+		    </div>
+</div>
+
+<div class="yun_prompt_box" style="margin-top:20px;display:none;" id="jobcheck">
+	<!--提示部分 start-->
+	<div class="yun_prompt_release">
+		<div class="yun_prompt_release_hi">尊敬的用户您好！</div>
+		<div id="tips_way">
+			<div class="yun_prompt_release_tip">以下条件尚未满足,暂时无法查看简历，请按顺序完成：</div>
+		</div>
+		<div id="msgList"></div>
+		<div class="yun_prompt_writing_operation" id="gourl">
+						<a href="http://www.jkqrc.com/member/index.php?c=jobadd" class="yun_prompt_writing_operation_bth">我已完成以上操作</a>
+					</div>
+	</div>
+	<!--提示部分  end-->
+</div>
+
+<!-- 发布职位弹出框end -->
+<style>
+	.layui-carousel{ background:none;}
+	.layui-carousel>[carousel-item]>*{background:none;}
+	.layui-carousel>[carousel-item]:before { display:none;}
+	.layui-carousel-arrow{ margin-top:-48px;}
+</style>
+
+<script>
+	var pricename = '积分';
+	/* 选择不同会员/增值包/单次购买  */
+	$(function(){
+		$("ul#rating_type").on("click", "li", function() {
+	        $(this).addClass("buymeal_tit_cur");
+	        $(this).siblings('li').removeClass("buymeal_tit_cur");
+	        var rating = $(this).attr("rating");
+	        if(rating) {
+	        	$(".rating_type").hide();
+	        	$("#rating_"+rating).show();
+	        } 
+	    })
+	})
+	/* 会员套餐滚动 */
+	layui.use('carousel', function() {
+		var carousel = layui.carousel;
+		
+		// 套餐会员
+		carousel.render({
+			elem : '#vip_1',
+			width : '748px',// 设置容器宽度
+			arrow : 'hover' // 悬停显示箭头
+			,autoplay:false // 自动切换关闭
+		});
+		// 时间会员
+		carousel.render({
+			elem : '#vip_2',
+			width : '748px',	
+			autoplay:false // 自动切换关闭
+	 	});
+	});
+     
+</script>
+<link href="./企业用户后台管理系统 - 长沙经开区人才网_files/changeutype.css" rel="stylesheet" type="text/css">
+<!--切换类型-->
+
+<div class="user_role_box none">
+
+<div class="user_role">当前身份：招聘企业</div>
+<div class="user_role_pic"></div>
+<div class="user_role_bth "><a href="javascript:;" onclick="changUsertypeFun(1);" class="user_role_bth_b">个人求职</a></div>
+<div class="user_role_bth  none "><a href="javascript:;" onclick="changUsertypeFun(2);" class="user_role_bth_b">招聘企业</a></div>
+ 
+<div class="user_role_bth "><a href="javascript:;" onclick="changUsertypeFun(4);" class="user_role_bth_b">培训机构</a></div>
+ 
+</div>
+<div class="" id="infoboxusertype" style="display:none; ">
+  <div>
+  <input name="applyusertype" id="applyusertype" value="0" type="hidden">
+       <input name="usertype" id="usertype" value="2" type="hidden">
+      <div class="identity_textarea">
+        <textarea id="applybody" name="applybody" placeholder="请说明您需要切换身份的原因" class="bz_textarea_text"></textarea>
+      </div>
+      <div class="identity_bth">
+       <button type="button" onclick="domaincheck();" class="identity_bth_qd">确定</button>
+      <!--<button type="submit" name='submit' value='1' class="identity_bth_qd" >确定</button>-->
+      &nbsp;&nbsp;
+      <button type="button" id="applybtn" class="identity_bth_qx">取消</button>
+      </div>
+  </div>
+</div>
+<!-------已拒绝   start -------->
+<div class="" id="applyyjj" style="display:none; ">
+  <div>
+  
+      <div class="identity_jtip">
+        <div id="applyyjjsm"></div>
+      </div>
+      <div class="identity_sqbth">
+      <button type="button" id="newsapply" onclick="newsapplyt();" class="identity_sq">重新申请</button>
+ 
+        <button type="button" id="applybtnyjj" onclick="applybtnyjjt();" class="identity_qx">取消</button>    </div>
+  </div>
+</div>
+<!-------已拒绝   end -------->
+<!-------待审核   start -------->
+<div class="" id="applydqr" style="display:none; ">
+  <div>
+
+      <div class="identity_cgtip">
+        <div id="applydshsm"></div>
+         
+      </div>
+      <div class="identity_cgwxtip">
+        你可关注微信快速接收审核信息
+      </div>
+     <div class="identity_cgwxewm">
+						<img src="./企业用户后台管理系统 - 长沙经开区人才网_files/15892329615.jpg" width="120" height="120">
+					</div>
+                        <div class="identity_cgtel">
+        如需快速审核，可拨打热线：0731-84020836
+      </div>
+  </div>
+</div>
+<!-------待审核 end -------->
+<script>
+layui.use('layer', function(){
+	var layer = layui.layer;
+
+});  
+$(document).ready(function(){ 
+	$('#applybtn').click(function(){
+		layer.closeAll();
+	}); 
+  $('#applybtndsh').click(function(){
+		layer.closeAll();
+	});
+}); 
+    function newsapplyt(){
+      $.post("http://www.jkqrc.com/index.php?c=applystype",{rand:Math.random()},function(data){
+        layer.closeAll();
+        var data=eval('('+data+')');
+        if(data['errcode']==2){
+          layer.open({
+          type: 1,
+          skin: 'yun_skin',
+          title: false,
+          closeBtn : 1,
+          area : [ '390px', 'auto' ],
+          content: $('.user_role_box') 
+          });
+        }else{
+           var data=eval('('+data+')');
+              parent.layer.msg(data.msg, 2,8, function(){
+              window.location.href = data.url;
+              window.event.returnValue = false;
+           });
+        }
+      });
+
+    }
+    function applybtnyjjt(){
+       $.post("http://www.jkqrc.com/index.php?c=applystype",{rand:Math.random()},function(data){
+        layer.closeAll();
+      });
+    }
+function changeutype(){
+  $.post("http://www.jkqrc.com/index.php?c=applytype",{rand:Math.random()},function(data){
+     if(data){
+        var data=eval('('+data+')');
+        if(data.errcode==1){
+          parent.layer.msg(data.msg, 2,8, function(){
+            window.location.href = data.url;
+            window.event.returnValue = false;
+          });
+        }else if(data.errcode==2){
+          $("#applydshsm").html(data.msg);
+          if(data.wxopenid || data.wxid){
+            $("#wxbingding").css("display","none");             
+          }else{
+            $("#wxbingding").css("display","block");    
+          }
+          $.layer({
+            type: 1,
+            title :'温馨提示', 
+            closeBtn : [0 , true],
+            border : [10 , 0.3 , '#000', true],
+            area : ['400px','auto'],
+            page : {dom :"#applydqr"}
+          });
+        }else if(data.errcode==3){
+         $("#applyyjjsm").html(data.msg);
+          $.layer({
+            type: 1,
+            title :'拒绝说明', 
+            closeBtn : [0 , true],
+            border : [10 , 0.3 , '#000', true],
+            area : ['300px','auto'],
+            page : {dom :"#applyyjj"}
+          });
+        }else{
+          layer.open({
+            type: 1,
+            skin: 'yun_skin',
+            title: false,
+            closeBtn : 1,
+            area : [ '390px', 'auto' ],
+            content: $('.user_role_box') 
+          });
+        }
+      }else{
+        layer.open({
+          type: 1,
+          skin: 'yun_skin',
+          title: false,
+          closeBtn : 1,
+          area : [ '390px', 'auto' ],
+          content: $('.user_role_box') 
+        });
+      }
+    });
+  }
+
+//切换身份
+function changUsertypeFun(usertype){
+  var usertype  =     usertype;
+  $("#applyusertype").val(usertype);
+  $.layer({
+    type : 1,
+		title :'申请说明', 
+		closeBtn : [0 , true],
+		border : [10 , 0.3 , '#000', true],
+		area : ['300px','auto'],
+		page : {dom :"#infoboxusertype"}
+  })
+}
+function domaincheck(){
+  var usertype        = $('#usertype').val();
+  var applyusertype   = $('#applyusertype').val();
+  var applybody       = $.trim($("textarea[name='applybody']").val());
+  if(applyusertype==""){
+     parent.layer.msg('请选择转换类型！', 2, 8);return false;
+  }else if(usertype==applyusertype){
+    parent.layer.msg('转换类型与当前类型一致，无须转换！', 2, 8);return false;
+  }
+  if(applybody==""){
+    parent.layer.msg('请填写申请说明！', 2, 8);return false;
+  }
+  $.post("http://www.jkqrc.com/index.php?c=changeusertype",{usertype:usertype,applyusertype:applyusertype,applybody:applybody},function(data){
+      var data=eval('('+data+')');
+      parent.layer.msg(data.msg, 2,9, function(){
+        window.location.href = data.url;
+        window.event.returnValue = false;
+      });
+  });
+}
+</script>
+ 
+
+
+
+</div><div class="layui-layer-move"></div></body></html>

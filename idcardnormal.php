@@ -81,11 +81,11 @@ function idcard_normal($picture_path){
 	if($b->image_status=="normal"){
 		$idcard->name=urlencode($b->words_result->姓名->words);
 		$idcard->id=$b->words_result->公民身份号码->words;
-		$idcard->success="true";
+		$idcard->success=true;
 	}else{
 		$idcard->name="";
 		$idcard->id="";
-		$idcard->success="false";
+		$idcard->success=false;
 	}
 	return $idcard;
 }

@@ -81,15 +81,15 @@ function idcard_back($picture_path){
 		$timeline=intval($b->words_result->失效日期->words);
 		$timecurr=intval(date('yymd',time()));
 		if($timeline>=$timecurr){
-			$idcard->success="true";
-			$idcard->expired="false";
+			$idcard->success=true;
+			$idcard->expired=false;
 		}else{
-			$idcard->success="true";
-			$idcard->expired="true";
+			$idcard->success=true;
+			$idcard->expired=true;
 		}
 	}else{
-		$idcard->success="false";
-		$idcard->expired="false";
+		$idcard->success=false;
+		$idcard->expired=false;
 	}
 	return $idcard;
 }

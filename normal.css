@@ -171,3 +171,12 @@
     text-decoration: none;
     color: black;
 }
+#page-one{
+    transition-duration: 500ms;
+}
+#paage-two{
+    transition-duration: 500ms;
+}
+#page-three{
+    transition-duration: 500ms;
+}
