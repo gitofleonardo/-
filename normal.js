@@ -25,7 +25,7 @@ function checkIfStatusPassed(){
                 var text=xh.responseText
                 var result=JSON.parse(text)
                 console.log(result)
-                if (!result["passed"]){
+                if (result["passed"]){
                     document.getElementById("all-submit").disabled="disabled"
                 }
             }
@@ -88,10 +88,10 @@ function onBankCardChanged(event){
     if (event.target.files[0]==undefined) return
     bankCardAvailable=false
     var img=document.getElementById("bank-card-file").files[0]
-    var bankLoad=document.getElementById("bank-load")
+    var bankLoad=document.getElementById("loadingToast")
+    bankLoad.style.display="block"
     document.getElementById("bank-card-number").value=""
     document.getElementById("bank-name").value=""
-    bankLoad.src="loading.gif"
     var data=new FormData()
     data.append("file",img)
     var xh=new XMLHttpRequest()
@@ -104,19 +104,18 @@ function onBankCardChanged(event){
                     if (result[0]["success"]){
                         document.getElementById("bank-card-number").value=result[0]["number"]
                         document.getElementById("bank-name").value=result[0]["name"]
-                        bankLoad.src="success.png"
                         bankCardAvailable=true
                     }else{
                         bankCardAvailable=false
-                        bankLoad.src="error.png"
                     }
+                    bankLoad.style.display="none"
                 }catch(e){
                     bankCardAvailable=false
-                    bankLoad.src="error.png"
+                    bankLoad.style.display="none"
                 }
             }else{
+                bankLoad.style.display="none"
                 bankCardAvailable=false
-                bankLoad.src="error.png"
             }
         }
     }
@@ -463,6 +462,8 @@ function hideSubmitting(){
     alert.classList.add("alert-success")
     var img=document.getElementById("alert-img")
     img.src="success.png"
+
+    document.getElementById("all-submit").disabled="disabled"
 }
 function onAddContract(event){
     var container=document.getElementById("add-labor-contract")

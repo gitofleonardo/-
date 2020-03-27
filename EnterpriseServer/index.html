@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0057)http://www.jkqrc.com/admin/index.php?m=admin_announcement -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="./reset.css" rel="stylesheet" type="text/css">
+<link href="./system.css" rel="stylesheet" type="text/css">
+<link href="./table_form.css" rel="stylesheet" type="text/css">
+<script src="./jquery-1.8.0.min.js"></script>
+<script src="./admin_public.js" language="javascript"></script>
+<link href="./layui.css" rel="stylesheet" type="text/css">
+<script src="./layui.js"></script>
+<script src="./phpyun_layer.js"></script>
+<title>后台管理</title>
+<link id="layuicss-layer" rel="stylesheet" href="./layer.css" media="all"></head>
+<body class="body_ifm">
+<div class="infoboxp">
+<div class="admin_new_tip">
+<a href="javascript:;" class="admin_new_tip_close"></a>
+<a href="javascript:;" class="admin_new_tip_open" style="display:none;"></a>
+<div class="admin_new_tit"><i class="admin_new_tit_icon"></i>操作提示</div>
+<div class="admin_new_tip_list_cont">
+<div class="admin_new_tip_list">该页面展示了网站所有的公司新闻管理信息，可对公司新闻进行审核删除操作。</div>
+<div class="admin_new_tip_list">可输入名称关键字进行搜索，也可进行详细的高级搜索。</div>
+</div>
+</div>
+
+<div class="clear"></div>
+
+<div class="admin_new_search_box"> 
+   <form action="http://www.jkqrc.com/admin/index.php" name="myform" method="get">  
+		<input name="m" value="admin_announcement" type="hidden">
+	<div class="admin_new_search_name">关键字：</div>
+<input class="admin_Filter_search" placeholder="输入你要搜索的关键字" type="text" name="keyword" size="25" style="float:left">
+		<input class="admin_Filter_bth" type="submit" name="news_search" value="搜索">
+	<a href="javascript:void(0)" onclick="$(&#39;.admin_screenlist_box&#39;).toggle();" class="admin_new_search_gj">高级搜索</a>
+     <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;c=add" class="admin_new_cz_tj">+ 添加公告</a>
+     </form>
+    <div class="search_select">
+	<div class="search_select_pdd" id="show_search" style="display: none;">
+
+		 
+ 		       		             
+				
+ 	</div>
+</div>
+
+
+<div class="clear"></div>
+<div class="admin_screenlist_box">
+		
+		    	    	    
+	    <div class="admin_screenlist">
+	    	<span class="admin_screenlist_name">发布时间：</span>
+	    	<a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement" class="admin_screenlist_cur">全部</a>
+	        	            <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;end=1">今天</a> 
+	        	            <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;end=3">最近三天</a> 
+	        	            <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;end=7">最近七天</a> 
+	        	            <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;end=15">最近半月</a> 
+	        	            <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;end=30">最近一个月</a> 
+	           
+	    </div>
+		
+	<div class="admin_screenlist_more"><a href="javascript:;" onclick="searchmore()">收起更多条件</a></div>
+</div>
+
+<script>
+function searchmore(){
+    var html=$(".admin_screenlist_box").toggle();
+}
+
+var sheight = document.getElementById("show_search").offsetHeight;
+
+if(sheight > 12){
+	$("#show_search").show();
+}else{
+	$("#show_search").hide();
+}
+
+ 
+</script>
+<div class="clear"></div>
+  </div>
+<div class="clear"></div> 
+  <div class="table-list">
+    <div class="admin_table_border">
+      <iframe id="supportiframe" name="supportiframe" onload="returnmessage(&#39;supportiframe&#39;);" style="display:none" src="./saved_resource.html"></iframe>
+      <form action="http://www.jkqrc.com/admin/index.php" name="myform" method="get" target="supportiframe" id="myform">
+        <input name="m" value="admin_announcement" type="hidden">
+        <input type="hidden" name="pytoken" id="pytoken" value="67244dab490e">
+
+        <input name="c" value="del" type="hidden">
+        <table width="100%">
+          <thead>
+            <tr class="admin_table_top">
+              <th style="width:20px;"><label for="chkall">
+                  <input type="checkbox" id="chkAll" onclick="CheckAll(this.form)">
+                </label></th>
+              
+              <th width="60">
+			  			  <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;order=asc&amp;t=id">编号<img src="./sanj2.jpg"></a>
+			   			  </th>            
+              <th align="left" width="40%">公告标题</th>
+              <th>
+			  			  <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;order=asc&amp;t=datetime">发布时间<img src="./sanj2.jpg"></a>
+			  			  </th>
+			   <th> 			  <a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;order=asc&amp;t=endtime">结束时间<img src="./sanj2.jpg"></a>
+			  			  </th><th width="60">分站</th>
+              <th class="admin_table_th_bg">操作</th>
+			 
+			  
+            </tr>
+          </thead>
+          <tbody>
+          
+                    <tr align="center" id="list1">
+            <td><input type="checkbox" value="1" class="check_all" name="del[]" onclick="unselectall()" rel="del_chk"></td>
+            <td align="left" class="td1" style="text-align:center;"><span>1</span></td>
+            <td class="od" align="left">新版人才网升级了</td>
+            <td class="td">2020-02-12</td>
+			<td class="td">2021-02-12</td>
+			<td>
+			<div>总站</div>
+			<div><a href="javascript:;" onclick="checksite(&#39;新版人才网升级了&#39;,&#39;1&#39;,&#39;index.php?m=admin_announcement&amp;c=checksitedid&#39;);" class="admin_company_xg_icon">重新分配</a></div>
+			</td>
+            <td><a href="http://www.jkqrc.com/admin/index.php?m=admin_announcement&amp;c=add&amp;id=1" class="status admin_new_c_bth admin_n_sc">修改</a>  <a href="javascript:void(0)" onclick="layer_del(&#39;确定要删除？&#39;, &#39;index.php?m=admin_announcement&amp;c=del&amp;id=1&#39;);" class="admin_new_c_bth admin_new_c_bth_sc">删除</a></td>
+		    
+		 </tr>
+                    <tr>
+          <td align="center"><input type="checkbox" id="chkAll2" onclick="CheckAll2(this.form)"></td>
+            <td colspan="5">
+            <label for="chkAll2">全选</label>&nbsp;
+            <input class="admin_button" type="button" name="delsub" value="删除所选" onclick="return really(&#39;del[]&#39;)">
+			<input class="admin_button" type="button" name="delsub" value="批量选择分站" onclick="checksiteall(&#39;index.php?m=admin_announcement&amp;c=checksitedid&#39;);"></td>
+           </tr>
+			            </tbody>          
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+<style>
+.admin_new_c_bth {color:#999;font-size:12px;}
+</style>
+<script type="text/javascript">
+var weburl="http://www.jkqrc.com";
+function checksiteall(url){
+	var codewebarr="";
+	$(".check_all:checked").each(function(){ 
+		if(codewebarr==""){codewebarr=$(this).val();}else{codewebarr=codewebarr+","+$(this).val();}
+	});
+	if(codewebarr==""){
+		parent.layer.msg('您还未选择任何信息！', 2, 8);	return false;
+	}else{
+		checksite('',codewebarr,url);
+	}
+}
+function checksite(name,id,url){ 
+	if(name==''){
+		$("#com_name").html("");
+	}else if(url=='index.php?m=admin_news&c=checksitedid'){
+		$("#com_name").html("新闻标题：");
+	}else if(url=='index.php?m=zhaopinhui&c=checksitedid'){
+		$("#com_name").html("招聘会标题：");
+	}else if(url=='index.php?m=admin_announcement&c=checksitedid'){
+		$("#com_name").html("公告标题：");
+	}else{
+		$("#com_name").html("用户名：");
+	}
+	name=name.substr(0,15);
+	$('#formDomain').attr('action', url);
+	$('#siteusername').html(name);
+    $('#siteuid').val(id);
+	$.layer({
+		type : 1,
+		title :'分配站点', 
+		closeBtn : [0 , true],
+		border : [10 , 0.3 , '#000', true],
+		area : ['350px','260px'],
+		offset: ['20px', ''],
+		page : {dom :"#infoboxdomain"}
+	});
+}
+
+function checkguwenall(url){
+	var codewebarr="";
+	$(".check_all:checked").each(function(){ 
+		if(codewebarr==""){codewebarr=$(this).val();}else{codewebarr=codewebarr+","+$(this).val();}
+	});
+	if(codewebarr==""){
+		parent.layer.msg('您还未选择任何信息！', 2, 8);	return false;
+	}else{
+		checkguwen('',codewebarr,url);
+	}
+}
+
+function checkguwen(name,id,url){ 
+	if(name==''){
+		
+		$("#com_username").html("");
+		
+	}else if(url=='index.php?m=admin_company&c=checkguwen'){
+		
+		$("#com_username").html("企业用户名：");
+		
+	}
+	name=name.substr(0,15);
+	$('#formGuwen').attr('action', url);
+	$('#comusername').html(name);
+    $('#comid').val(id);
+	$.layer({
+		type : 1,
+		title :'分配业务员', 
+		closeBtn : [0 , true],
+		border : [10 , 0.3 , '#000', true],
+		area : ['350px','260px'],
+		offset: ['20px', ''],
+		page : {dom :"#infoguwen"}
+	});
+}
+
+function checkCrmAll(url){
+	var codewebarr="";
+	$(".check_all:checked").each(function(){ 
+		if(codewebarr==""){codewebarr=$(this).val();}else{codewebarr=codewebarr+","+$(this).val();}
+	});
+	if(codewebarr==""){
+		parent.layer.msg('您还未选择任何信息！', 2, 8);	return false;
+	}else{
+		checkCrm('',codewebarr,url);
+	}
+}
+
+function checkCrm(name,id,url){ 
+	
+	if(name==''){
+		
+		$("#com_username").html("");
+		
+	}else if(url=='index.php?m=user_member&c=checkCrm'){
+		
+		$("#com_username").html("个人用户名：");
+		
+	}
+	name=name.substr(0,15);
+	$('#formGuwen').attr('action', url);
+	$('#comusername').html(name);
+    $('#comid').val(id);
+	$.layer({
+		type : 1,
+		title :'分配业务员', 
+		closeBtn : [0 , true],
+		border : [10 , 0.3 , '#000', true],
+		area : ['350px','260px'],
+		offset: ['20px', ''],
+		page : {dom :"#infoguwen"}
+	});
+}
+function searchdomain(id){
+	var pytoken = $('#pytoken').val();
+	if(id==1){
+	    var keyword = $.trim($('#sitekeyword').val());
+	}else{
+	    var keyword = $.trim($('#domainkeyword').val());
+	}
+	if(!keyword){
+		parent.layer.msg('请输入搜索关键词！', 2, 8);return false;
+	}
+	loadlayer();
+	$.post(weburl+"/index.php?m=ajax&c=selsite",{pytoken:pytoken,keyword:keyword,id:id},function(data){
+		parent.layer.closeAll('loading');
+		if(data==0){
+			parent.layer.msg('请输入搜索关键词！', 2, 8);return false;
+		}else if(data==1){
+			parent.layer.msg('未查询到相关数据！', 2, 8);return false;
+		}else{
+		    if(id==1){
+				$('#did_val').html(data);
+				layui.use(['form'],function(){
+				var f = layui.form;
+				f.render();
+				});
+
+			}else{
+				$('#domain_val').html(data);
+				layui.use(['form'],function(){
+				var f = layui.form;
+				f.render();
+				});
+				
+			}
+		}
+	});
+
+}
+
+/* 搜索顾问姓名 */
+function searchguwen(id){
+	
+	var pytoken = $('#pytoken').val();
+	var keyword = $.trim($('#guwenkeyword').val());
+	
+	if(!keyword){
+		parent.layer.msg('请输入搜索关键词！', 2, 8);return false;
+	}
+	loadlayer();
+	$.post(weburl+"/index.php?m=ajax&c=selcrm",{pytoken:pytoken,keyword:keyword,id:id},function(data){
+		parent.layer.closeAll('loading');
+		if(data==0){
+			parent.layer.msg('请输入搜索关键词！', 2, 8);return false;
+		}else if(data==1){
+			parent.layer.msg('未查询到相关数据！', 2, 8);return false;
+		}else{
+		    if(id==1){
+				$('#gid_val').html(data);
+				layui.use(['form'],function(){
+					var f = layui.form;
+					f.render();
+				});
+			}
+		}
+	});
+}
+
+function searchcrm(id){
+	var pytoken = $('#pytoken').val();
+	if(id==1){
+	    var keyword = $.trim($('#crmkeyword').val());
+	}else{
+	    var keyword = $.trim($('#crmkeyword').val());
+	}
+	if(!keyword){
+		parent.layer.msg('请输入搜索关键词！', 2, 8);return false;
+	}
+	var i=loadlayer();
+	$.post(weburl+"/index.php?m=ajax&c=selcrm",{pytoken:pytoken,keyword:keyword,id:id},function(data){
+		layer.close(i);
+		if(data==0){
+			parent.layer.msg('请输入搜索关键词！', 2, 8);return false;
+		}else if(data==1){
+			parent.layer.msg('未查询到相关数据！', 2, 8);return false;
+		}else{
+		    if(id==1){
+				$('#cid_val').html(data);
+				layui.use(['form'],function(){
+				var f = layui.form;
+				f.render();
+				});
+			}
+		}
+	});
+}
+
+function add_site(id,name){
+    if(id!=''){
+	   $("#domain_val").val(id);
+	}
+	if(name!=''){
+	   $("#domain_name").val(name);
+	}
+	$.layer({
+		type : 1,
+		title :'分配站点', 
+		closeBtn : [0 , true],
+		border : [10 , 0.3 , '#000', true],
+		area : ['400px','200px'],
+		offset: ['20px', ''],
+		page : {dom :"#domainlist"}
+	});
+}
+function check_domain(){
+    
+	var domain_val=$("#domain_val").val();
+	var domain_name = domain_val.split(',');
+		var id=domain_name[0];
+		var name=domain_name[1];
+		$(".city_news_but").val(name);
+		$("#did").val(id);
+	
+	layer.closeAll(); 
+}
+function domaincheck(){
+   var did=$("#did_val").val();
+   if(!did){
+       layer.msg('请选择需要切换的站点',2,8);return false;
+   }
+}
+function guwencheck(){
+   var gid=$("#gid_val").val();
+   if(!gid){
+       layer.msg('请选择需要分配的顾问',2,8);return false;
+   }
+}
+function crmcheck(){
+   var cid=$("#cid_val").val();
+   if(!cid){
+       layer.msg('请选择需要绑定的业务员',2,8);return false;
+   }
+}
+</script>
+<style>
+	.admin_compay_fp{width:340px; margin-top:15px;}
+	.admin_compay_fp_s{width:100px; text-align:right; font-weight:bold; display:inline-block}
+	.admin_compay_fp_sub{width:140px;height:25px;border:1px solid #ddd;}
+	.admin_compay_fp_sub1{width:40px;height:27px; background:#3692cf;color:#fff;border:none; cursor:pointer}
+
+	.layui-layer-page .layui-layer-content{
+		overflow: visible !important;
+	}
+</style>
+<div id="infoboxdomain" style="display:none; width: 350px; ">
+	<form class="layui-form" action="http://www.jkqrc.com/admin/index.php?m=admin_announcement" target="supportiframe" method="post" id="formDomain" onsubmit="return domaincheck()"> 
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s" id="com_name"></span> 
+			<em id="siteusername"></em>
+		</div>
+		
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s">分站搜索：</span>
+			<input type="text" value="" id="sitekeyword" class="admin_compay_fp_sub">
+			<input type="button" onclick="searchdomain(&#39;1&#39;)" value="搜索" class="admin_compay_fp_sub1">
+		</div>
+		<div class="admin_compay_fp" style="height:34px;">
+			<span class="admin_compay_fp_s" style="float:left; line-height:34px; display:inline-block; margin-right:5px;">切换站点：</span>
+            
+			<div class="yun_admin_select_box zindex100"> 
+				<div class="layui-form-item">
+				  <div class="layui-input-inline">
+						<select name="did" id="did_val" lay-filter="did">
+						<option value="">请选择</option>
+						
+												<option value="0">总站</option>
+												</select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="请选择" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="" class="layui-select-tips">请选择</dd><dd lay-value="0" class="">总站</dd></dl></div>
+				  </div>
+				 </div>
+           </div>
+		</div>
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s">&nbsp;</span>
+			<input type="submit" value="确认" class="admin_examine_bth"><input type="button" onclick="layer.closeAll();" class="admin_examine_bth_qx" value="取消" style="margin-left:10px;">
+		</div> 
+		<input type="hidden" name="pytoken" value="67244dab490e">
+		<input name="uid" value="0" id="siteuid" type="hidden">
+	</form> 
+</div>
+
+<div id="infoguwen" style="display:none; width: 350px; ">
+	<form class="layui-form" action="http://www.jkqrc.com/admin/index.php?m=admin_announcement" target="supportiframe" method="post" id="formGuwen" onsubmit="return guwencheck()"> 
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s" id="com_username"></span> 
+			<em id="comusername"></em>
+		</div>
+		
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s">顾问搜索：</span>
+			<input type="text" value="" id="guwenkeyword" class="admin_compay_fp_sub">
+			<input type="button" onclick="searchguwen(&#39;1&#39;)" value="搜索" class="admin_compay_fp_sub1">
+		</div>
+
+		<div class="admin_compay_fp" style="height:34px;">
+			<span class="admin_compay_fp_s" style="float:left; line-height:34px; display:inline-block; margin-right:5px;">选择顾问：</span>
+            <div class="yun_admin_select_box zindex100"> 
+				<div class="layui-form-item">
+				  <div class="layui-input-inline">
+						<select name="gid" id="gid_val" lay-filter="gid">
+						<option value="">请选择</option>
+						
+												</select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="请选择" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="" class="layui-select-tips">请选择</dd></dl></div>
+				  </div>
+				 </div>
+           </div>
+		</div>
+
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s">&nbsp;</span>
+			<input type="submit" value="确认" class="admin_examine_bth"><input type="button" onclick="layer.closeAll();" class="admin_examine_bth_qx" value="取消" style="margin-left:10px;">
+		</div> 
+		<input type="hidden" name="pytoken" value="67244dab490e">
+		<input name="comid" value="0" id="comid" type="hidden">
+	</form> 
+</div>
+ 
+
+<div id="infocrm" style="display:none; width: 350px; ">
+	<form class="layui-form" action="http://www.jkqrc.com/admin/index.php?m=admin_announcement" target="supportiframe" method="post" id="formCrm" onsubmit="return crmcheck()"> 
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s" id="con_name"></span> 
+			<em id="crmusername"></em>
+		</div>
+		
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s">业务员搜索：</span>
+			<input type="text" value="" id="crmkeyword" class="admin_compay_fp_sub">
+			<input type="button" onclick="searchcrm(&#39;1&#39;)" value="搜索" class="admin_compay_fp_sub1">
+		</div>
+
+		<div class="admin_compay_fp" style="height:34px;">
+			<span class="admin_compay_fp_s" style="float:left; line-height:34px; display:inline-block; margin-right:5px;">选择业务员：</span>
+            <div class="yun_admin_select_box zindex100"> 
+				<div class="layui-form-item">
+				  <div class="layui-input-inline">
+						<select name="cid" id="cid_val" lay-filter="cid">
+						<option value="">请选择</option>
+						
+												</select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="请选择" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="" class="layui-select-tips">请选择</dd></dl></div>
+				  </div>
+				 </div>
+           </div>
+            
+            
+		</div>
+		<div class="admin_compay_fp">
+			<span class="admin_compay_fp_s">&nbsp;</span>
+			<input type="submit" value="确认" class="admin_examine_bth"><input type="button" onclick="layer.closeAll();" class="admin_examine_bth_qx" value="取消" style="margin-left:10px;">
+		</div> 
+		<input type="hidden" name="pytoken" value="67244dab490e">
+		<input name="conid" value="0" id="conid" type="hidden">
+	</form> 
+</div>
+
+<div id="domainlist" style="display:none;float:left">
+<form class="layui-form">
+	<div class="admin_compay_fp">
+		<span class="admin_compay_fp_s">分站搜索：</span>
+		<input type="text" value="" id="domainkeyword" class="admin_compay_fp_sub">
+		<input type="button" onclick="searchdomain(&#39;2&#39;)" value="搜索" class="admin_compay_fp_sub1">
+	</div>
+	<div class="admin_compay_fp" style="height:34px;">
+		<span class="admin_compay_fp_s" style="float:left; line-height:34px; display:inline-block; margin-right:5px;">切换站点：</span>
+		<div class="yun_admin_select_box zindex100">
+			<div class="layui-form-item">
+				  <div class="layui-input-inline">
+						<select name="did" id="domain_val" lay-filter="did">
+						<option value="">请选择</option>
+												<option value="0,总站">总站</option>
+												</select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="请选择" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="" class="layui-select-tips">请选择</dd><dd lay-value="0,总站" class="">总站</dd></dl></div>
+				  </div>
+				 </div>
+		</div>
+
+	</div>
+	<div class="admin_compay_fp">
+		<span class="admin_compay_fp_s">&nbsp;</span>
+		<input type="button" value="确认" onclick="check_domain()" class="admin_examine_bth"><input type="button" onclick="layer.closeAll();" class="admin_examine_bth_qx" value="取消" style="margin-left:10px;">
+	</div> 
+	</form>
+</div>
+<script>
+layui.use(['form'],function(form){form.render();});
+</script>
+
+</body></html>

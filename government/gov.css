@@ -1,0 +1,161 @@
+.body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.panel-parent{
+    margin-top: 20px;
+}
+.user-status-green{
+    color: green;
+}
+.user-status-red{
+    color: red;
+}
+.user-status-orange{
+    color: orange;
+}
+.user-status-blue{
+    color: blue;
+}
+.linear-layout-horizontal{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.linear-layout-vertical{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btn-process{
+    width: 80px;
+    height: 30px;
+}
+.user-table{
+    text-align: center;
+}
+.my-panel-body{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 800px;
+    padding: 0 0 0 0;
+}
+#progress{
+    width: 600px;
+    height: 400px;
+}
+.panel-title-container{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+.my-panel-title{
+    text-align: left;
+    height: 100%;
+    width: auto;
+}
+.conclusion-list{
+    margin-left: 20px;
+    margin-top: 60px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.check-num{
+    width: 300px;
+}
+.alert-primary{
+    color: rgb(4, 172, 238);
+    background-color: rgb(152, 211, 235);
+    border-color: rgb(113, 189, 219);
+}
+#conclusion{
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    margin: 20px 20px 20px 20px;
+    z-index: 100;
+    position: absolute;
+    top: 20%;
+    border-radius: 10px;
+    background-color: white;
+    transition-duration: 800ms;
+    display: block;
+}
+.conclusion-header{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.close-conclusion{
+    position: absolute;
+    right: 10px;
+}
+.search-apply{
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: center;
+    padding-left: 10px;
+    background-color: rgb(226, 226, 226);
+    width: 150px;
+    height: 30px;
+    transition-duration: 500ms;
+    border-radius: 20px;
+    border: none;
+}
+#apply-detail-body{
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 1000px;
+    height: 90%;
+    z-index: 120;
+}
+#apply-detail{
+    width: 1000px;
+    height: 90%;
+    z-index: 120;
+}
+.detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+.detail-img{
+    width: 50%;
+    height: auto;
+}
+.info-group{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.pdf-t.td{
+    border: 1px solid black;
+}
+td,th{
+    border: 1px solid black;
+}

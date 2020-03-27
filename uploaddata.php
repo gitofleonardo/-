@@ -13,7 +13,7 @@ $password			= 		"";
 $dbname				=		"bookms";             //数据库信息填写
 
 $applyTime			=		date("Y-m-d");              //申请时间
-$uidInt				=		111;                   //uid  外键  部署时修改
+$uidInt				=		190;                   //uid  外键  部署时修改
 $sessionname		=		"sessionname";     //默认session，共开发调用
 //$sessionname		=		$_SESSION[''];   //填写session用户名字段
 $pictureDir			=		"C:\\xampp\\htdocs\\temp\\";   //图片存放地址
@@ -139,9 +139,9 @@ if(isset($_POST["username"])&&isset($_POST["idCode"])&&isset($_POST["phone"])&&i
 		$j=5;
 
 		$sql=
-				"INSERT INTO applyInfo (username,idCode,phone,company,userPost,entryTime,canbaoTime,originCompany,originCompanyLocation,bankCardNumber,bankName,applyAmount,signNameInput,idCardImgFront,idCardImgBack,bankCardImg,signature,contracts,ins,status,uid,applyTime)
+				"INSERT INTO applyInfo (username,idCode,phone,company,userPost,entryTime,canbaoTime,originCompany,originCompanyLocation,bankCardNumber,bankName,applyAmount,signNameInput,idCardImgFront,idCardImgBack,bankCardImg,signature,contracts,ins,status,uid,applyTime,gov_status,to_gov)
  				VALUES 
- ('".$_POST["username"]."','".$_POST["idCode"]."','".$_POST["phone"]."','".$_POST["company"]."','".$_POST["userPost"]."','".$_POST["entryTime"]."','".$_POST["canbaoTime"]."','".$_POST["originCompany"]."','".$_POST["originCompanyLocation"]."','".$_POST["bankCardNumber"]."','".$_POST["bankName"]."','".$_POST["applyAmount"]."','".$signNameInput."','".$idCardImgFront."','".$idCardImgBack."','".$bankCardImg."','".$signature."','".$contracts."','".$ins."','0','".$uidInt."','".$applyTime."')";
+ ('".$_POST["username"]."','".$_POST["idCode"]."','".$_POST["phone"]."','".$_POST["company"]."','".$_POST["userPost"]."','".$_POST["entryTime"]."','".$_POST["canbaoTime"]."','".$_POST["originCompany"]."','".$_POST["originCompanyLocation"]."','".$_POST["bankCardNumber"]."','".$_POST["bankName"]."','".$_POST["applyAmount"]."','".$signNameInput."','".$idCardImgFront."','".$idCardImgBack."','".$bankCardImg."','".$signature."','".$contracts."','".$ins."','0','".$uidInt."','".$applyTime."','0','false')";
  
 		if(mysqli_query($conn,$sql)){
 			$result->success="true";
@@ -255,16 +255,16 @@ if(isset($_POST["username"])&&isset($_POST["idCode"])&&isset($_POST["phone"])&&i
 username='".$_POST["username"]."',idCode='".$_POST["idCode"]."',phone='".$_POST["phone"]."',company='".$_POST["company"]."',userPost='".$_POST["userPost"]."',entryTime='".$_POST["entryTime"]."',canbaoTime='".$_POST["canbaoTime"]."',originCompany='".$_POST["originCompany"]."',originCompanyLocation='".$_POST["originCompanyLocation"]."',bankCardNumber='".$_POST["bankCardNumber"]."',bankName='".$_POST["bankName"]."',applyAmount='".$_POST["applyAmount"]."',signNameInput='".$signNameInput."',idCardImgFront='".$idCardImgFront."',idCardImgBack='".$idCardImgBack."',bankCardImg='".$bankCardImg."',signature='".$signature."',contracts='".$contracts."',ins='".$ins."',applyTime='".$applyTime."' WHERE uid='".$uidInt."';";
 			
 			if(mysqli_query($conn,$sql1)){
-			$result->success="true";
+			$result->success=true;
 			}
 			echo json_encode($result);
 		}else{
-			$result->success="false";
+			$result->success=false;
 			echo json_encode($result);
 		}
 	}
 }else{
-	$result->success="false";
+	$result->success=false;
 	echo json_encode($result);
 }
 
