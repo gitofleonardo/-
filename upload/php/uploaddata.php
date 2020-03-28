@@ -13,7 +13,7 @@ $password			= 		"";
 $dbname				=		"bookms";             //数据库信息填写
 
 $applyTime			=		date("Y-m-d");              //申请时间
-$uidInt				=		1001;                   //uid  外键  部署时修改
+$uidInt				=		190;                   //uid  外键  部署时修改
 $sessionname		=		"sessionname";     //默认session，共开发调用
 //$sessionname		=		$_SESSION[''];   //填写session用户名字段
 $pictureDir			=		"C:\\xampp\\htdocs\\temp\\";   //图片存放地址

@@ -84,10 +84,12 @@
     overflow: hidden;
     width: 0px;
     height: 0px;
-    margin: 20px 20px 20px 20px;
     z-index: 100;
     position: absolute;
-    top: 20%;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -500px;
     border-radius: 10px;
     background-color: white;
     transition-duration: 800ms;
@@ -122,12 +124,12 @@
     overflow-x: hidden;
     overflow-y: auto;
     width: 1000px;
-    height: 90%;
+    height: 100%;
     z-index: 120;
 }
 #apply-detail{
     width: 1000px;
-    height: 90%;
+    height: 100%;
     z-index: 120;
 }
 .detail-container{
@@ -138,8 +140,6 @@
     top: 0;
     left: 0;
     position: absolute;
-    width: 100%;
-    height: 100%;
     z-index: 100;
 }
 .detail-img{
@@ -157,4 +157,16 @@
 }
 td,th{
     border: 1px solid black;
+}
+.pic{
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    overflow:hidden;
+}
+.detail-img-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

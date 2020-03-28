@@ -5,6 +5,7 @@ class back{
 }
 $back=new back();
 
+//include 'dbconnect.php';
 $servername = "localhost:3306";
 $username = "root";
 $password = "";
@@ -35,7 +36,7 @@ $uidInt				=		111;                   //uid  外键  部署时修改
 	}
 */
 
-$sql="UPDATE applyinfo SET to_gov='1' WHERE company='".$company."' and status='1';";
+$sql="UPDATE applyinfo SET to_gov='1',gov_status='0' WHERE company='".$company."' and status='1';";
 if(mysqli_query($conn,$sql)){
 	$back->success=true;
 }else{

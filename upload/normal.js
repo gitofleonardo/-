@@ -1,8 +1,6 @@
 var idCardFrontAvailable=false
 var idCardBackAvailable=false
 var bankCardAvailable=false
-var contractList=[]
-var insList=[]
 const serverIDCardFront="http://192.168.0.103:82/idcardnormal.php"
 const serverIDBack="http://192.168.0.103:82/idcardback.php"
 const serverBankCard="http://192.168.0.103:82/bankcard.php"
@@ -25,7 +23,6 @@ function checkIfStatusPassed(){
             if (xh.status==200){
                 var text=xh.responseText
                 var result=JSON.parse(text)
-                console.log(result)
                 if (result["passed"]){
                     document.getElementById("all-submit").disabled="disabled"
                 }
@@ -86,7 +83,6 @@ function chooseBankCard(){
     $("#bank-card-file").click()
 }
 function onBankCardChanged(event){
-    console.log(event.target.files[0].size)
     if (event.target.files[0]==undefined || event.target.files[0]==null) return
     if (event.target.files[0].size>maxSize){
         alert("请上传2M以内的图片")
@@ -94,6 +90,7 @@ function onBankCardChanged(event){
     }
     bankCardAvailable=false
     var img=document.getElementById("bank-card-file").files[0]
+    document.getElementById("toast_content").innerText="正在验证"
     var bankLoad=document.getElementById("loadingToast")
     bankLoad.style.display="block"
     document.getElementById("bank-card-number").value=""
@@ -146,7 +143,6 @@ function onIdImageChangedFront(event){
     if (imgFile==undefined) return
     var URL=window.URL || window.webkitURL
     var imgUrl=URL.createObjectURL(imgFile)
-    console.log(imgUrl)
     img.src=imgUrl
 
     checkIDCardFront(document.getElementById("id-card-img-front"))
@@ -161,7 +157,6 @@ function onIdImageChangedBack(event){
     var imgFile=event.target.files[0]
     var URL=window.URL || window.webkitURL
     var imgUrl=URL.createObjectURL(imgFile)
-    console.log(imgUrl)
     img.src=imgUrl
 
     checkIDCardBack(document.getElementById("id-card-img-back"))
@@ -190,7 +185,6 @@ function checkIDCardFront(dom){
             if (xmlhttp.status==200){
                 try{
                     var result=JSON.parse(xmlhttp.responseText)
-                    console.log(result)
                     if (result[0]["success"]){
                         progress.src="success.png"
                         hint.innerText="验证成功"
@@ -242,7 +236,6 @@ function checkIDCardBack(dom){
             if (xmlhttp.status==200){
                 try{
                     var result=JSON.parse(xmlhttp.responseText)
-                    console.log(result)
                     if (result[0]["success"]){
                         idCardBackAvailable=true
                         progress.src="success.png"
@@ -320,19 +313,6 @@ function conformSubmit(){
     var bankName=document.getElementById("bank-name").value
     var applyAmount=document.getElementById("apply-amount").value
     var signNameInput=document.getElementById("sign-name-input").value
-    console.log(username)
-    console.log(idCode)
-    console.log(contactNumber)
-    console.log(companyId)
-    console.log(userPost)
-    console.log(entryTime)
-    console.log(canbaoTime)
-    console.log(originCompany)
-    console.log(originCompanyLocation)
-    console.log(bankCardNumber)
-    console.log(bankName)
-    console.log(applyAmount)
-    console.log(signNameInput)
     
     if (username=="" 
     || idCode=="" 
@@ -390,12 +370,7 @@ function conformSubmit(){
         ins.push(insRecords.children[i].withFile)
         start++
     }
-    console.log(contracts)
-    console.log(ins)
     var signature=$("#sign-name").jSignature("getData","image")
-    console.log(signature)
-    console.log($("#sign-name").jSignature("getData","native"))
-    console.log(signNameInput)
     if ($("#sign-name").jSignature("getData","native").length==0 && (signNameInput==undefined || signNameInput=="")){
         alert("手写签名和输入框签名必须至少填写一项")
         return
@@ -439,7 +414,6 @@ function conformSubmit(){
             if (xh.status==200){
                 try{
                     var text=xh.responseText
-                    console.log(text)
                     var result=JSON.parse(text)
                     if (result["success"]){
                         document.getElementById("all-submit").disabled="disabled"
@@ -468,7 +442,7 @@ function showToast(str){
     toast.style.display="block"
     setTimeout(function(){
         toast.style.display="none"
-    },1000)
+    },2000)
 }
 function onAddContract(event){
     if (event.target.files[0]==undefined || event.target.files[0]==null) return
@@ -479,8 +453,6 @@ function onAddContract(event){
     var container=document.getElementById("add-labor-contract")
     var imgFile=event.target.files[0]
     if (imgFile==undefined || imgFile==null) return
-    console.log(imgFile)
-    contractList.push(imgFile)
     var URL=window.URL || window.webkitURL
     var imgUrl=URL.createObjectURL(imgFile)
     var img=document.createElement("img")
@@ -514,7 +486,6 @@ function onAddInsChanged(event){
     var container=document.getElementById("add-ins-entry")
     var imgFile=event.target.files[0]
     if (imgFile==undefined || imgFile==null) return
-    contractList.push(imgFile)
     var URL=window.URL || window.webkitURL
     var imgurl=URL.createObjectURL(imgFile)
     var img=document.createElement("img")

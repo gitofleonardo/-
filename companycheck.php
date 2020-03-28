@@ -26,6 +26,7 @@ class apply{
 	public $gov_status;
 	public $uidInt;
 	public $applyTime;
+	public $to_gov;
 }
 
 $servername = "localhost:3306";
@@ -64,7 +65,7 @@ if(mysqli_num_rows($resl)>0){
 	$rowl=mysqli_fetch_array($resl);
 	$companyName=$rowl["name"];
 
-	$sql="SELECT * FROM applyInfo WHERE company='".$company."' and to_gov='0'";
+	$sql="SELECT * FROM applyInfo WHERE company='".$company."'";
 	$result=mysqli_query($conn,$sql);
 	if(mysqli_num_rows($result)>0){
 		while($row=mysqli_fetch_array($result)){
@@ -97,6 +98,11 @@ if(mysqli_num_rows($resl)>0){
 			$apply->gov_status=(int)$row["gov_status"];
 			$apply->uidInt=(int)$row["uid"];
 			$apply->applyTime=$row["applyTime"];
+			if($row["to_gov"]==1){
+				$apply->to_gov=true;
+			}else{
+				$apply->to_gov=false;
+			}
 			$data[]=$apply;
 		}
 		echo urldecode(json_encode($data));
@@ -104,7 +110,6 @@ if(mysqli_num_rows($resl)>0){
 		$data=array();
 		echo urldecode(json_encode($data));
 	}
-
 }else{
 	$data=array();
 	echo urldecode(json_encode($data));

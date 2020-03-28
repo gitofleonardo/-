@@ -125,6 +125,8 @@ function buildTableRow(item){
     var applyAmount=item["applyAmount"]
     var applyTime=item["applyTime"]
     var status=item["status"]
+    var gov_status=item["gov_status"]
+    var to_gov=item["to_gov"]
 
     var tr=document.createElement("tr")
     var td1=document.createElement("td")
@@ -134,17 +136,14 @@ function buildTableRow(item){
     var td5=document.createElement("td")
     var td6=document.createElement("td")
     var td7=document.createElement("td")
+    var td8=document.createElement("td")
+    var td9=document.createElement("td")
     //var btn1=document.createElement("button")
     var btn2=document.createElement("button")
     var btnContainer=document.createElement("div")
     btnContainer.classList.add("linear-layout-horizontal")
     btn2.classList.add("btn","btn-primary")
     btn2.style.marginLeft="20px"
-
-    //btn1.addEventListener("click",function(){
-    //    passOrUndo(this)
-    //})
-    //btn1.id="process_"+id
     btn2.innerText="查看资料"
     btn2.id="detail_"+id
     btn2.addEventListener("click",function(){
@@ -159,29 +158,35 @@ function buildTableRow(item){
     if (status==0){
         td6.classList.add("user-status-orange")
         td6.innerText="待处理"
-
-        //btn1.classList.add("btn","btn-success")
-        //btn1.innerText="通过"
     }else if (status==1){
         td6.classList.add("user-status-green")
         td6.innerText="审核通过"
-
-        //btn1.classList.add("btn","btn-warning")
-        //btn1.innerText="撤销"
     }else if (status==2){
         td6.classList.add("user-status-red")
         td6.innerText="未通过"
-
-        //btn1.classList.add("btn","btn-warning")
-        //btn1.innerText="撤销"
     }else if (status==3){
         td6.classList.add("user-status-blue")
         td6.innerText="需要修改"
-
-        //btn1.classList.add("btn","btn-warning")
-        //btn1.innerText="撤销"
     }
-    //btnContainer.appendChild(btn1)
+    if (gov_status==0){
+        td8.classList.add("user-status-orange")
+        td8.innerText="待审核"
+    }else if (gov_status==1){
+        td8.classList.add("user-status-green")
+        td8.innerText="审核通过"
+    }else if (gov_status==2){
+        td8.classList.add("user-status-red")
+        td8.innerText="未通过"
+    }else if (gov_status==3){
+        td8.classList.add("user-status-blue")
+        td8.innerText="需要修改"
+    }
+    if (to_gov){
+        td9.innerText="是"
+    }else{
+        td9.innerText="否"
+    }
+
     btnContainer.appendChild(btn2)
     td7.appendChild(btnContainer)
     tr.appendChild(td1)
@@ -190,6 +195,8 @@ function buildTableRow(item){
     tr.appendChild(td4)
     tr.appendChild(td5)
     tr.appendChild(td6)
+    tr.appendChild(td9)
+    tr.appendChild(td8)
     tr.appendChild(td7)
     return tr
 }
@@ -236,6 +243,15 @@ function showDetail(apply){
     document.getElementById("bank-card").src=data["bankCardImg"]
     document.getElementById("signature").src=data["signature"]
     document.getElementById("sign-name-input").src=data["signNameInput"]
+    var to_gov=data["to_gov"]
+    console.log(to_gov)
+    if (to_gov){
+        console.log("set display none")
+        document.getElementById("process-buttons").style.display="none"
+    }else{
+        document.getElementById("process-buttons").style.display="block"
+        console.log("set display block")
+    }
 
     var contracts=data["contracts"]
     var conContainer=document.getElementById("contract-container")
@@ -262,6 +278,47 @@ function showDetail(apply){
         insContainer.appendChild(img)
     }
 }
+function toNormalRotation(src){
+    var Orientation=1;
+    var imageObj=new Image()
+    imageObj.src=src
+    imageObj.onload=function(){
+        varOrientation=1
+        var cvs=document.createElement('canvas')
+        var ctx=cvs.getContext('2d')
+        var scale=1
+        var size=this.size
+        cvs.width=this.width*scale
+        cvs.height=this.height*scale
+        EXIF.getData(imageObj,function(){
+            if (Orientation && Orientation!=1){
+                switch(Orientation){
+                    case 6:
+                        var fatherWidth=parseFloat($('.detailPhotoimg').css('width'));
+                        var fatherheight=parseFloat($('.detailPhotoimg').css('height'));
+                        scale=fatherWidth/this.width;
+                        heightScale=fatherheight/this.height;
+                        cvs.width=fatherWidth;
+                        var x=this.height*scale/2;
+                        cvs.height=fatherheight*2;
+                        ctx.rotate(Math.PI/2);
+                        ctx.drawImage(this,0,-this.height*scale-(fatherWidth/2-x),fatherWidth,fatherheight);
+                        break;
+                    case 8:
+                        cvs.width=this.height*scale;
+                        cvs.height=this.width*scale;
+                        ctx.rotate(3*Math.PI/2);
+                        ctx.drawImage(this,-this.width*scale,0,this.width*scale,this.height*scale);
+                        break;
+                }
+            }else{
+                ctx.drawImage(this,0,0,cvs.width,cvs.height);
+            }
+            var newImageData=cvs.toDataURL(this,1);
+            return newImageData
+    })
+    }
+}
 var show=false
 function showConclusion(){
     var conclusion=document.getElementById("conclusion")
@@ -286,7 +343,7 @@ function loadIntoPdf(){
             continue
         }
 
-        sum+=item["applyAmount"]
+        sum+=parseInt(item["applyAmount"])
 
         var idCode=item["idCode"]
         var name=item["username"]
@@ -393,15 +450,19 @@ function onSetStatusChange(status){
                     var result=JSON.parse(t)
                     if (result["success"]){
                         alert("操作成功")
+                        hideApplyDetail()
                         loadApplies()
                     }else{
+                        hideApplyDetail()
                         alert("操作失败：未知错误")
                     }
                 }catch(e){
+                    hideApplyDetail()
                     alert("操作失败：未知错误")
                 }
 
             }else{
+                hideApplyDetail()
                 alert("操作失败，请检查网络连接")
             }
         }
@@ -415,7 +476,7 @@ function onSetStatusChange(status){
 function submitAllApplies(){
     var date=new Date()
     var time=""+date.getFullYear()+date.getMonth()+date.getDate()
-    var result=prompt("请在下方输入 "+time+" 以确认提交")
+    var result=prompt("注意：将提交所有审核已通过的申请\n请在下方输入 "+time+" 以确认提交")
     if (result==time){
         confirmSubmit()
     }else{

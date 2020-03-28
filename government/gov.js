@@ -19,7 +19,7 @@ var option={
 }
 var appliesData=[]
 const appliesInterface="http://192.168.0.103:82/govcheck.php"
-const markStatusServer="http://192.168.0.103:82/companyupdate.php"
+const markStatusServer="http://192.168.0.103:82/govupdate.php"
 var chart
 var current=0
 var currentDetailId
@@ -396,18 +396,20 @@ function onSetStatusChange(status){
                     }else{
                         alert("操作失败：未知错误")
                     }
+                    hideApplyDetail()
                 }catch(e){
+                    hideApplyDetail()
                     alert("操作失败：未知错误")
                 }
-
             }else{
+                hideApplyDetail()
                 alert("操作失败，请检查网络连接")
             }
         }
     }
     var data=new FormData()
     data.append("id",parseInt(currentDetailId))
-    data.append("status",parseInt(status))
+    data.append("gov_status",parseInt(status))
     console.log()
     xh.send(data)
 }
